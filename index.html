@@ -3,154 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AERIS Agro — Intelligence. Connected.</title>
+<title>AERIS Agro — Know your field. Sell at a fair price.</title>
+<meta name="description" content="Weather alerts, crop advice, and safe market access — on any phone, in your language. Coltiva itye kwede.">
+<meta property="og:title" content="AERIS Agro — Intelligence. Connected.">
+<meta property="og:description" content="Integrated agricultural intelligence for Uganda's Lango sub-region. Satellite field data, USSD farmer advisory, and commodity trading in one closed loop.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── TOKENS ── */
 :root {
-  --green:        #22803f;
-  --green-dark:   #1a6a32;
-  --green-bright: #2ecc71;
-  --gold:         #f0a500;
-  --font:         'Manrope', sans-serif;
-  --nav-h:        68px;
-  --transition:   0.3s ease;
+  --green: #22803f; --green-dark: #1a6a32; --green-bright: #2ecc71;
+  --gold: #f0a500; --font: 'Manrope', sans-serif; --nav-h: 68px;
+  --transition: 0.3s ease;
 }
 
+/* ── DARK THEME ── */
 [data-theme="dark"] {
-  --bg:           #0d1a10;
-  --bg-2:         #111a13;
-  --bg-card:      rgba(255,255,255,0.04);
-  --bg-card-h:    rgba(255,255,255,0.07);
-  --bg-stat:      rgba(0,0,0,0.38);
-  --nav-bg:       rgba(10,20,12,0.72);
-  --nav-mob-bg:   rgba(8,18,10,0.97);
-  --border:       rgba(255,255,255,0.08);
-  --border-nav:   rgba(255,255,255,0.07);
-  --border-mob:   rgba(255,255,255,0.04);
-  --border-card:  rgba(255,255,255,0.07);
-  --text:         #ffffff;
-  --text-muted:   rgba(255,255,255,0.55);
-  --text-dim:     rgba(255,255,255,0.40);
-  --text-nav:     rgba(255,255,255,0.60);
-  --text-stat:    rgba(255,255,255,0.45);
-  --text-foot:    rgba(255,255,255,0.35);
-  --text-copy:    rgba(255,255,255,0.20);
-  --foot-bg:      #060e08;
-  --foot-border:  rgba(255,255,255,0.06);
-  --foot-col:     rgba(255,255,255,0.50);
-  --cta-bg:       linear-gradient(135deg,#0a2010 0%,#0d2a15 50%,#0a1f10 100%);
-  --cta-border:   rgba(46,204,113,0.15);
-  --tag-bg:       rgba(34,128,63,0.12);
-  --tag-border:   rgba(34,128,63,0.30);
-  --tag-color:    #2ecc71;
-  --vid-bg:       #000;
-  --vid-frame:    rgba(46,204,113,0.12);
-  --vid-scan:     rgba(255,255,255,0.012);
-  --vid-title:    rgba(255,255,255,0.85);
-  --vid-sub:      rgba(255,255,255,0.35);
-  --vid-progress: rgba(255,255,255,0.06);
-  --ham-bar:      rgba(255,255,255,0.80);
-  --ham-hover:    rgba(255,255,255,0.08);
-  --toggle-bg:    rgba(255,255,255,0.08);
-  --toggle-bdr:   rgba(255,255,255,0.15);
-  --ghost-bg:     rgba(255,255,255,0.12);
-  --ghost-bdr:    rgba(255,255,255,0.25);
-  --ghost-color:  #ffffff;
-  --ghost-bg-h:   rgba(255,255,255,0.20);
-  --stat-bdr:     rgba(255,255,255,0.08);
-  --stat-color:   #ffffff;
-  --ask-bg:       rgba(255,255,255,0.05);
-  --ask-bdr:      rgba(255,255,255,0.10);
-
-  /* Modal */
-  --modal-bg:     #0a1a0d;
-  --modal-border: rgba(46,204,113,0.12);
-  --modal-overlay:#000000e0;
-  --prop-rule:    rgba(255,255,255,0.07);
-  --prop-h2:      #ffffff;
-  --prop-h3:      #2ecc71;
-  --prop-body:    rgba(255,255,255,0.72);
-  --prop-muted:   rgba(255,255,255,0.38);
-  --prop-card:    rgba(255,255,255,0.04);
-  --prop-card-b:  rgba(255,255,255,0.08);
-  --prop-toc-bg:  rgba(255,255,255,0.03);
-  --prop-toc-b:   rgba(46,204,113,0.18);
-  --prop-pullq:   rgba(46,204,113,0.08);
-  --prop-pullq-b: #2ecc71;
+  --bg: #0d1a10; --bg-2: #111a13;
+  --bg-card: rgba(255,255,255,0.04); --bg-card-h: rgba(255,255,255,0.07);
+  --bg-stat: rgba(0,0,0,0.38);
+  --nav-bg: rgba(10,20,12,0.72); --nav-mob-bg: rgba(8,18,10,0.97);
+  --border: rgba(255,255,255,0.08); --border-nav: rgba(255,255,255,0.07);
+  --border-mob: rgba(255,255,255,0.04); --border-card: rgba(255,255,255,0.07);
+  --text: #ffffff; --text-muted: rgba(255,255,255,0.55);
+  --text-dim: rgba(255,255,255,0.40); --text-nav: rgba(255,255,255,0.60);
+  --text-stat: rgba(255,255,255,0.45); --text-foot: rgba(255,255,255,0.35);
+  --text-copy: rgba(255,255,255,0.20);
+  --foot-bg: #060e08; --foot-border: rgba(255,255,255,0.06); --foot-col: rgba(255,255,255,0.50);
+  --cta-bg: linear-gradient(135deg,#0a2010 0%,#0d2a15 50%,#0a1f10 100%);
+  --cta-border: rgba(46,204,113,0.15);
+  --tag-bg: rgba(34,128,63,0.12); --tag-border: rgba(34,128,63,0.30); --tag-color: #2ecc71;
+  --vid-sub: rgba(255,255,255,0.35);
+  --ham-bar: rgba(255,255,255,0.80); --ham-hover: rgba(255,255,255,0.08);
+  --toggle-bg: rgba(255,255,255,0.08); --toggle-bdr: rgba(255,255,255,0.15);
+  --ghost-bg: rgba(255,255,255,0.12); --ghost-bdr: rgba(255,255,255,0.25); --ghost-color: #ffffff;
+  --ghost-bg-h: rgba(255,255,255,0.20);
+  --stat-bdr: rgba(255,255,255,0.08); --stat-color: #ffffff;
+  --ask-bg: rgba(255,255,255,0.05); --ask-bdr: rgba(255,255,255,0.10);
+  --modal-bg: #0a1a0d; --modal-border: rgba(46,204,113,0.12); --modal-overlay: #000000e0;
+  --prop-rule: rgba(255,255,255,0.07); --prop-h2: #ffffff; --prop-h3: #2ecc71;
+  --prop-body: rgba(255,255,255,0.72); --prop-muted: rgba(255,255,255,0.38);
+  --prop-card: rgba(255,255,255,0.04); --prop-card-b: rgba(255,255,255,0.08);
+  --prop-toc-bg: rgba(255,255,255,0.03); --prop-toc-b: rgba(46,204,113,0.18);
+  --prop-pullq: rgba(46,204,113,0.08); --prop-pullq-b: #2ecc71;
 }
 
+/* ── LIGHT THEME ── */
 [data-theme="light"] {
-  --bg:           #f4f9f5;
-  --bg-2:         #eaf3ec;
-  --bg-card:      rgba(255,255,255,0.85);
-  --bg-card-h:    rgba(255,255,255,1);
-  --bg-stat:      rgba(255,255,255,0.75);
-  --nav-bg:       rgba(255,255,255,0.82);
-  --nav-mob-bg:   rgba(248,253,250,0.98);
-  --border:       rgba(34,128,63,0.12);
-  --border-nav:   rgba(34,128,63,0.10);
-  --border-mob:   rgba(34,128,63,0.07);
-  --border-card:  rgba(34,128,63,0.14);
-  --text:         #0d2015;
-  --text-muted:   #3a5a43;
-  --text-dim:     #6a8a73;
-  --text-nav:     #3a5a43;
-  --text-stat:    #5a7a63;
-  --text-foot:    #5a7a63;
-  --text-copy:    #8aaa93;
-  --foot-bg:      #e4f0e7;
-  --foot-border:  rgba(34,128,63,0.10);
-  --foot-col:     #3a5a43;
-  --cta-bg:       linear-gradient(135deg,#d4eddd 0%,#c8e8d0 50%,#d4eddd 100%);
-  --cta-border:   rgba(34,128,63,0.20);
-  --tag-bg:       rgba(34,128,63,0.08);
-  --tag-border:   rgba(34,128,63,0.25);
-  --tag-color:    #22803f;
-  --vid-bg:       #e8f5ec;
-  --vid-frame:    rgba(34,128,63,0.15);
-  --vid-scan:     rgba(0,0,0,0.015);
-  --vid-title:    #0d2015;
-  --vid-sub:      #6a8a73;
-  --vid-progress: rgba(0,0,0,0.06);
-  --ham-bar:      #1a4a28;
-  --ham-hover:    rgba(34,128,63,0.08);
-  --toggle-bg:    rgba(34,128,63,0.08);
-  --toggle-bdr:   rgba(34,128,63,0.20);
-  --ghost-bg:     rgba(255,255,255,0.45);
-  --ghost-bdr:    rgba(255,255,255,0.60);
-  --ghost-color:  #0d2015;
-  --ghost-bg-h:   rgba(255,255,255,0.70);
-  --stat-bdr:     rgba(34,128,63,0.10);
-  --stat-color:   #0d2015;
-  --ask-bg:       rgba(255,255,255,0.60);
-  --ask-bdr:      rgba(34,128,63,0.20);
-
-  /* Modal */
-  --modal-bg:     #ffffff;
-  --modal-border: rgba(34,128,63,0.15);
-  --modal-overlay:rgba(10,25,15,0.75);
-  --prop-rule:    rgba(34,128,63,0.10);
-  --prop-h2:      #0d2015;
-  --prop-h3:      #22803f;
-  --prop-body:    #3a5a43;
-  --prop-muted:   #7a9a83;
-  --prop-card:    #f4faf6;
-  --prop-card-b:  rgba(34,128,63,0.12);
-  --prop-toc-bg:  #eaf3ec;
-  --prop-toc-b:   rgba(34,128,63,0.20);
-  --prop-pullq:   rgba(34,128,63,0.06);
-  --prop-pullq-b: #22803f;
+  --bg: #f4f9f5; --bg-2: #eaf3ec;
+  --bg-card: rgba(255,255,255,0.85); --bg-card-h: rgba(255,255,255,1);
+  --bg-stat: rgba(255,255,255,0.75);
+  --nav-bg: rgba(255,255,255,0.82); --nav-mob-bg: rgba(248,253,250,0.98);
+  --border: rgba(34,128,63,0.12); --border-nav: rgba(34,128,63,0.10);
+  --border-mob: rgba(34,128,63,0.07); --border-card: rgba(34,128,63,0.14);
+  --text: #0d2015; --text-muted: #3a5a43; --text-dim: #6a8a73;
+  --text-nav: #3a5a43; --text-stat: #5a7a63; --text-foot: #5a7a63;
+  --text-copy: #8aaa93;
+  --foot-bg: #e4f0e7; --foot-border: rgba(34,128,63,0.10); --foot-col: #3a5a43;
+  --cta-bg: linear-gradient(135deg,#d4eddd 0%,#c8e8d0 50%,#d4eddd 100%);
+  --cta-border: rgba(34,128,63,0.20);
+  --tag-bg: rgba(34,128,63,0.08); --tag-border: rgba(34,128,63,0.25); --tag-color: #22803f;
+  --vid-sub: #6a8a73;
+  --ham-bar: #1a4a28; --ham-hover: rgba(34,128,63,0.08);
+  --toggle-bg: rgba(34,128,63,0.08); --toggle-bdr: rgba(34,128,63,0.20);
+  --ghost-bg: rgba(255,255,255,0.45); --ghost-bdr: rgba(255,255,255,0.60); --ghost-color: #0d2015;
+  --ghost-bg-h: rgba(255,255,255,0.70);
+  --stat-bdr: rgba(34,128,63,0.10); --stat-color: #0d2015;
+  --ask-bg: rgba(255,255,255,0.60); --ask-bdr: rgba(34,128,63,0.20);
+  --modal-bg: #ffffff; --modal-border: rgba(34,128,63,0.15); --modal-overlay: rgba(10,25,15,0.75);
+  --prop-rule: rgba(34,128,63,0.10); --prop-h2: #0d2015; --prop-h3: #22803f;
+  --prop-body: #3a5a43; --prop-muted: #7a9a83;
+  --prop-card: #f4faf6; --prop-card-b: rgba(34,128,63,0.12);
+  --prop-toc-bg: #eaf3ec; --prop-toc-b: rgba(34,128,63,0.20);
+  --prop-pullq: rgba(34,128,63,0.06); --prop-pullq-b: #22803f;
 }
 
+/* Smooth theme transitions on everything except animations */
 *, *::before, *::after {
   transition: background-color var(--transition), border-color var(--transition), color var(--transition);
 }
 .hero-icon, .hero-headline, .hero-sub, .hero-btns, .hero-stats,
-.theme-toggle, .nav-hamburger span, .icon-sun, .icon-moon { transition: none; }
+.theme-toggle, .nav-hamburger span { transition: none; }
 .theme-toggle { transition: transform 0.2s; }
 .icon-sun, .icon-moon { transition: opacity 0.25s ease, transform 0.35s ease; }
 .nav-hamburger span { transition: transform 0.25s ease, opacity 0.2s ease, background-color var(--transition); }
@@ -158,7 +96,7 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 300;
   background: var(--nav-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
@@ -171,7 +109,7 @@ nav {
 .nav-logo { font-size: 1.375rem; font-weight: 800; color: var(--text); letter-spacing: 0.04em; text-decoration: none; flex-shrink: 0; }
 .nav-logo span { color: var(--green-bright); }
 [data-theme="light"] .nav-logo span { color: var(--green); }
-.nav-links { display: flex; gap: 2.25rem; list-style: none; align-items: center; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
 .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-nav); text-decoration: none; }
 .nav-links a:hover { color: var(--text); }
 .nav-btn { background: var(--green) !important; color: #fff !important; padding: 0.5rem 1.375rem; border-radius: 50px; font-weight: 600 !important; }
@@ -184,10 +122,10 @@ nav {
 }
 .theme-toggle:hover { transform: scale(1.1); }
 .icon-sun, .icon-moon { position: absolute; width: 18px; height: 18px; }
-[data-theme="dark"]  .icon-sun  { opacity: 1; transform: rotate(0deg)    scale(1);   }
-[data-theme="dark"]  .icon-moon { opacity: 0; transform: rotate(90deg)   scale(0.5); }
-[data-theme="light"] .icon-sun  { opacity: 0; transform: rotate(-90deg)  scale(0.5); }
-[data-theme="light"] .icon-moon { opacity: 1; transform: rotate(0deg)    scale(1);   }
+[data-theme="dark"]  .icon-sun  { opacity: 1; transform: rotate(0deg)   scale(1);   }
+[data-theme="dark"]  .icon-moon { opacity: 0; transform: rotate(90deg)  scale(0.5); }
+[data-theme="light"] .icon-sun  { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+[data-theme="light"] .icon-moon { opacity: 1; transform: rotate(0deg)   scale(1);   }
 .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 8px; flex-shrink: 0; }
 .nav-hamburger:hover { background: var(--ham-hover); }
 .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--ham-bar); border-radius: 2px; transform-origin: center; }
@@ -195,24 +133,22 @@ nav {
 .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .nav-mobile { display: none; flex-direction: column; background: var(--nav-mob-bg); backdrop-filter: blur(20px); border-top: 1px solid var(--border-mob); overflow: hidden; max-height: 0; transition: max-height 0.35s ease, padding 0.25s ease, background var(--transition) !important; }
-.nav-mobile.open { max-height: 440px; padding: 0.75rem 0 1.25rem; }
+.nav-mobile.open { max-height: 480px; padding: 0.75rem 0 1.25rem; }
 .nav-mobile a { display: block; font-size: 1rem; font-weight: 500; color: var(--text-nav); text-decoration: none; padding: 0.875rem 1.75rem; border-bottom: 1px solid var(--border-mob); }
 .nav-mobile a:hover { color: var(--text); background: var(--ham-hover); }
 .mob-theme-row { display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 1.75rem; border-bottom: 1px solid var(--border-mob); }
 .mob-theme-label { font-size: 1rem; font-weight: 500; color: var(--text-nav); }
-.mob-theme-pill { display: flex; align-items: center; gap: 0.5rem; background: var(--toggle-bg); border: 1px solid var(--toggle-bdr); border-radius: 50px; padding: 0.3rem 0.875rem; cursor: pointer; font-size: 0.825rem; font-weight: 600; color: var(--text-nav); }
+.mob-theme-pill { display: flex; align-items: center; gap: 0.5rem; background: var(--toggle-bg); border: 1px solid var(--toggle-bdr); border-radius: 50px; padding: 0.3rem 0.875rem; cursor: pointer; font-size: 0.825rem; font-weight: 600; color: var(--text-nav); font-family: var(--font); }
 .mob-theme-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
-.mob-theme-pill .icon-sun  { position: static; }
-.mob-theme-pill .icon-moon { position: static; }
-[data-theme="dark"]  .mob-theme-pill .icon-sun  { opacity: 1; transform: none; }
-[data-theme="dark"]  .mob-theme-pill .icon-moon { display: none; }
-[data-theme="light"] .mob-theme-pill .icon-sun  { display: none; }
-[data-theme="light"] .mob-theme-pill .icon-moon { opacity: 1; transform: none; }
-.nav-mobile .mob-btn { margin: 0.75rem 1.75rem 0; background: var(--green); color: #fff; text-align: center; border-radius: 50px; padding: 0.8rem 1.375rem; font-weight: 600; font-size: 0.9375rem; border-bottom: none; }
+.nav-mobile .mob-btn { margin: 0.75rem 1.75rem 0; background: var(--green); color: #fff; text-align: center; border-radius: 50px; padding: 0.8rem 1.375rem; font-weight: 600; font-size: 0.9375rem; border: none; cursor: pointer; font-family: var(--font); display: block; }
 .nav-mobile .mob-btn:hover { background: var(--green-dark); }
 
-/* HERO */
-.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding-top: var(--nav-h); }
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; padding-top: var(--nav-h);
+}
 .hero-img { position: absolute; inset: 0; z-index: 0; background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=80'); background-size: cover; background-position: center 40%; }
 .hero-overlay { position: absolute; inset: 0; z-index: 1; }
 [data-theme="dark"]  .hero-overlay { background: linear-gradient(to bottom,rgba(5,15,8,0.50) 0%,rgba(5,15,8,0.28) 40%,rgba(5,15,8,0.65) 100%); }
@@ -226,64 +162,74 @@ nav {
 .hero-headline { font-size: clamp(2rem,5vw,3.25rem); font-weight: 800; line-height: 1.1; color: #fff; margin-bottom: 1.25rem; letter-spacing: -0.02em; }
 .hero-headline span { color: var(--gold); }
 .hero-sub { font-size: clamp(0.9375rem,2.5vw,1.0625rem); font-weight: 400; color: rgba(255,255,255,0.80); line-height: 1.7; max-width: 46ch; margin-bottom: 2.25rem; }
+.hero-sub em { display: block; margin-top: 0.5rem; font-size: 0.9em; color: rgba(255,255,255,0.55); font-style: normal; }
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-.btn-primary { background: var(--green); color: #fff; font-family: var(--font); font-size: 0.9375rem; font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px; border: none; text-decoration: none; display: inline-block; cursor: pointer; }
-.btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
-.btn-ghost { background: var(--ghost-bg); color: var(--ghost-color); font-family: var(--font); font-size: 0.9375rem; font-weight: 500; padding: 0.8rem 2rem; border-radius: 50px; border: 1px solid var(--ghost-bdr); text-decoration: none; display: inline-block; backdrop-filter: blur(8px); cursor: pointer; }
-.btn-ghost:hover { background: var(--ghost-bg-h); transform: translateY(-1px); }
 .hero-stats { display: flex; margin-top: 2.5rem; background: var(--bg-stat); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--stat-bdr); border-radius: 16px; overflow: hidden; width: 100%; max-width: 680px; }
 .hero-stat { flex: 1; padding: 1.25rem 1rem; text-align: center; border-right: 1px solid var(--stat-bdr); }
 .hero-stat:last-child { border-right: none; }
-.stat-num { font-size: clamp(1.25rem,3vw,1.625rem); font-weight: 800; color: var(--stat-color); line-height: 1; margin-bottom: 0.3rem; letter-spacing: -0.02em; }
+.stat-num { font-size: clamp(1rem,2.5vw,1.35rem); font-weight: 800; color: var(--stat-color); line-height: 1; margin-bottom: 0.3rem; letter-spacing: -0.02em; }
 .stat-num span { color: var(--green-bright); }
 [data-theme="light"] .stat-num span { color: var(--green); }
 .stat-label { font-size: clamp(0.6rem,1.5vw,0.7rem); font-weight: 500; color: var(--text-stat); letter-spacing: 0.04em; line-height: 1.4; text-transform: uppercase; }
 
-/* SHARED SECTION */
+/* ── BUTTONS ── */
+.btn-primary { background: var(--green); color: #fff; font-family: var(--font); font-size: 0.9375rem; font-weight: 600; padding: 0.8rem 2rem; border-radius: 50px; border: none; text-decoration: none; display: inline-block; cursor: pointer; }
+.btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+.btn-ghost { background: var(--ghost-bg); color: var(--ghost-color); font-family: var(--font); font-size: 0.9375rem; font-weight: 500; padding: 0.8rem 2rem; border-radius: 50px; border: 1px solid var(--ghost-bdr); text-decoration: none; display: inline-block; backdrop-filter: blur(8px); cursor: pointer; }
+.btn-ghost:hover { background: var(--ghost-bg-h); transform: translateY(-1px); }
+
+/* ── SHARED SECTION ── */
 section { padding: 5rem 4rem; }
 .section-tag { display: inline-flex; align-items: center; background: var(--tag-bg); border: 1px solid var(--tag-border); color: var(--tag-color); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.875rem; border-radius: 50px; margin-bottom: 1.25rem; }
 .section-headline { font-size: clamp(1.75rem,3.5vw,2.75rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; color: var(--text); }
 .section-headline span { color: var(--gold); }
 .section-body { font-size: clamp(0.9rem,2vw,1rem); font-weight: 400; color: var(--text-muted); line-height: 1.75; max-width: 52ch; }
 
-/* VIDEO */
+/* ── FARMER STEPS ── */
+.farmer-section { background: var(--bg); border-top: 1px solid var(--border); }
+.farmer-inner { max-width: 1100px; margin: 0 auto; }
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.step-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; padding: 1.75rem 1.5rem; }
+.step-card:hover { border-color: rgba(46,204,113,0.35); transform: translateY(-2px); background: var(--bg-card-h); }
+.step-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; color: var(--green-bright); margin-bottom: 0.875rem; }
+.step-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.625rem; line-height: 1.3; }
+.step-body { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+.dial-strip { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.dial-pill { display: inline-flex; align-items: center; gap: 0.875rem; background: var(--tag-bg); border: 1px solid var(--tag-border); border-radius: 50px; padding: 0.6rem 1.25rem 0.6rem 0.875rem; }
+.dial-label { background: var(--green); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 50px; white-space: nowrap; }
+.dial-num { font-size: 1rem; font-weight: 800; color: var(--tag-color); letter-spacing: 0.04em; }
+.dial-note { font-size: 0.8125rem; color: var(--text-dim); line-height: 1.6; max-width: 42ch; }
+
+/* ── BUYER SECTION ── */
+.buyer-section { background: var(--bg-2); border-top: 1px solid var(--border); }
+.buyer-inner { max-width: 1100px; margin: 0 auto; }
+.buyer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.buyer-cards { display: flex; flex-direction: column; gap: 1rem; }
+.buyer-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 1.125rem 1.25rem; }
+.buyer-card:hover { border-color: rgba(46,204,113,0.3); }
+.buyer-card-label { font-size: 0.8125rem; font-weight: 700; color: var(--green-bright); margin-bottom: 0.3rem; }
+[data-theme="light"] .buyer-card-label { color: var(--green); }
+.buyer-card-body { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.65; }
+.buyer-btns { display: flex; gap: 0.875rem; flex-wrap: wrap; margin-top: 2rem; }
+.btn-ghost-alt { background: var(--bg-card); color: var(--text); font-family: var(--font); font-size: 0.9375rem; font-weight: 500; padding: 0.8rem 2rem; border-radius: 50px; border: 1px solid var(--border-card); text-decoration: none; display: inline-block; cursor: pointer; }
+.btn-ghost-alt:hover { border-color: rgba(46,204,113,0.35); transform: translateY(-1px); }
+
+/* ── CREDIBILITY STRIP ── */
+.cred-strip { background: var(--bg); border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem 2.5rem; flex-wrap: wrap; }
+.cred-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+.cred-partner { font-size: 0.8125rem; font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+
+/* ── VIDEO ── */
 .video-section { background: var(--bg-2); border-top: 1px solid var(--border); padding: 0; }
 .video-header { text-align: center; padding: 5rem 4rem 3.5rem; }
 .video-header .section-body { margin: 0 auto; max-width: 54ch; }
 .video-cinema { width: 100%; background: var(--bg-2); display: flex; justify-content: center; padding: 0 4rem; }
-.video-ratio  {
-  position: relative; width: 100%; max-width: 960px;
-  aspect-ratio: 16 / 9;
-  border-radius: 16px; overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-}
-.video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; cursor: pointer; }
-[data-theme="dark"]  .video-placeholder { background: radial-gradient(ellipse at 30% 40%,rgba(34,128,63,0.18) 0%,transparent 55%),radial-gradient(ellipse at 70% 60%,rgba(46,204,113,0.08) 0%,transparent 50%),linear-gradient(160deg,#060e08 0%,#0d1a10 50%,#060e08 100%); }
-[data-theme="light"] .video-placeholder { background: radial-gradient(ellipse at 30% 40%,rgba(34,128,63,0.12) 0%,transparent 55%),radial-gradient(ellipse at 70% 60%,rgba(46,204,113,0.06) 0%,transparent 50%),linear-gradient(160deg,#e8f5ec 0%,#f4f9f5 50%,#e8f5ec 100%); }
-.video-placeholder::before { content: ''; position: absolute; inset: 0; pointer-events: none; background-image: repeating-linear-gradient(0deg,transparent,transparent 2px,var(--vid-scan) 2px,var(--vid-scan) 4px); }
-.video-placeholder::after { content: ''; position: absolute; inset: 1.5rem; border: 1px solid var(--vid-frame); pointer-events: none; }
-.video-play-btn { position: relative; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-[data-theme="dark"]  .video-play-btn { background: rgba(34,128,63,0.20); border: 2px solid rgba(46,204,113,0.50); }
-[data-theme="light"] .video-play-btn { background: rgba(34,128,63,0.15); border: 2px solid rgba(34,128,63,0.45); }
-.video-placeholder:hover .video-play-btn { background: rgba(34,128,63,0.45); border-color: var(--green-bright); transform: scale(1.08); }
-.video-play-btn::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid rgba(46,204,113,0.25); animation: vPulse 2.4s ease-in-out infinite; }
-@keyframes vPulse { 0%,100% { transform:scale(1); opacity:0.6; } 50% { transform:scale(1.15); opacity:0; } }
-.video-play-btn svg { width: 28px; height: 28px; margin-left: 4px; }
-[data-theme="dark"]  .video-play-btn svg { fill: #fff; }
-[data-theme="light"] .video-play-btn svg { fill: var(--green); }
-.video-placeholder-label { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
-.video-placeholder-title  { font-size: clamp(1.125rem,2.5vw,1.5rem); font-weight: 700; color: var(--vid-title); letter-spacing: -0.01em; }
-.video-placeholder-sub    { font-size: clamp(0.8rem,1.5vw,0.9rem); font-weight: 400; color: var(--vid-sub); letter-spacing: 0.04em; }
-.video-placeholder-badge  { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; }
-[data-theme="dark"]  .video-placeholder-badge { color: var(--green-bright); background: rgba(46,204,113,0.10); border: 1px solid rgba(46,204,113,0.25); }
-[data-theme="light"] .video-placeholder-badge { color: var(--green);        background: rgba(34,128,63,0.10);  border: 1px solid rgba(34,128,63,0.25);  }
-.video-duration  { position: absolute; bottom: 1.25rem; right: 1.5rem; font-size: 0.75rem; font-weight: 600; color: var(--vid-sub); letter-spacing: 0.08em; }
-.video-progress  { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--vid-progress); }
-.video-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg,var(--green),var(--green-bright)); }
+.video-ratio { position: relative; width: 100%; max-width: 960px; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.35); }
+.video-ratio iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; }
 .video-footer { text-align: center; padding: 3.5rem 4rem 5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .video-footer-note { font-size: 0.875rem; color: var(--vid-sub); max-width: 44ch; line-height: 1.65; }
 
-/* IMPACT */
+/* ── IMPACT ── */
 .impact { background: var(--bg); border-top: 1px solid var(--border); }
 .impact-inner { max-width: 1200px; margin: 0 auto; }
 .impact-top { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
@@ -296,9 +242,9 @@ section { padding: 5rem 4rem; }
 .impact-num span { color: var(--green-bright); }
 [data-theme="light"] .impact-num span { color: var(--green); }
 .impact-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 0.5rem; }
-.impact-desc  { font-size: 0.8125rem; color: var(--text-dim); line-height: 1.55; }
+.impact-desc { font-size: 0.8125rem; color: var(--text-dim); line-height: 1.55; }
 
-/* CTA */
+/* ── CTA ── */
 .cta { background: var(--cta-bg); border-top: 1px solid var(--cta-border); text-align: center; padding: 6rem 4rem; position: relative; overflow: hidden; }
 .cta::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
 [data-theme="dark"]  .cta::before { background: radial-gradient(circle,rgba(46,204,113,0.07) 0%,transparent 70%); }
@@ -310,10 +256,10 @@ section { padding: 5rem 4rem; }
 .cta-sub { font-size: clamp(0.9375rem,2vw,1.0625rem); color: var(--text-muted); line-height: 1.7; max-width: 50ch; margin: 0 auto 2.5rem; }
 .cta-ask { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--ask-bg); border: 1px solid var(--ask-bdr); border-radius: 50px; padding: 0.5rem 1.5rem 0.5rem 0.75rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center; }
 .cta-ask-label { background: var(--green); color: #fff; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 50px; }
-.cta-ask-text  { font-size: 0.875rem; color: var(--text-muted); font-weight: 500; }
+.cta-ask-text { font-size: 0.875rem; color: var(--text-muted); font-weight: 500; }
 .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-/* FOOTER */
+/* ── FOOTER ── */
 footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 4rem 3rem; border-bottom: 1px solid var(--foot-border); }
 .footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: 0.04em; margin-bottom: 0.5rem; display: block; text-decoration: none; }
@@ -328,369 +274,110 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
 .footer-contact a:hover { color: var(--text); }
 .footer-col-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--foot-col); margin-bottom: 1.25rem; }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-.footer-links a { font-size: 0.875rem; color: var(--text-foot); text-decoration: none; display: block; }
-.footer-links a:hover { color: var(--text); }
+.footer-links a, .footer-links button { font-size: 0.875rem; color: var(--text-foot); text-decoration: none; display: block; background: none; border: none; cursor: pointer; font-family: var(--font); text-align: left; padding: 0; }
+.footer-links a:hover, .footer-links button:hover { color: var(--text); }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; flex-wrap: wrap; gap: 1rem; }
 .footer-copy { font-size: 0.8125rem; color: var(--text-copy); }
 
-/* HERO ANIMATIONS */
+/* ── HERO ANIMATIONS ── */
 @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-.hero-icon     { animation: fadeUp 0.5s ease both 0.15s; }
-.hero-headline { animation: fadeUp 0.6s ease both 0.25s; }
-.hero-sub      { animation: fadeUp 0.6s ease both 0.40s; }
-.hero-btns     { animation: fadeUp 0.6s ease both 0.55s; }
-.hero-stats    { animation: fadeUp 0.6s ease both 0.70s; }
+.anim-icon     { animation: fadeUp 0.5s ease both 0.15s; }
+.anim-headline { animation: fadeUp 0.6s ease both 0.25s; }
+.anim-sub      { animation: fadeUp 0.6s ease both 0.40s; }
+.anim-btns     { animation: fadeUp 0.6s ease both 0.55s; }
+.anim-stats    { animation: fadeUp 0.6s ease both 0.70s; }
 
-/* ════════════════════════════════════════════════
-   PROPOSAL MODAL — DESKTOP
-════════════════════════════════════════════════ */
+/* ── PROPOSAL MODAL ── */
 .proposal-overlay {
   position: fixed; inset: 0; z-index: 1000;
-  background: var(--modal-overlay);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  background: var(--modal-overlay); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   display: flex; align-items: flex-start; justify-content: center;
-  padding: 2rem 1rem;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease !important;
-  overflow-y: auto;
+  padding: 2rem 1rem; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease !important; overflow-y: auto;
 }
-.proposal-overlay.open {
-  opacity: 1; pointer-events: all;
-}
+.proposal-overlay.open { opacity: 1; pointer-events: all; }
 .proposal-modal {
-  background: var(--modal-bg);
-  border: 1px solid var(--modal-border);
-  border-radius: 20px;
-  width: 100%; max-width: 780px;
-  position: relative;
-  transform: translateY(24px);
+  background: var(--modal-bg); border: 1px solid var(--modal-border);
+  border-radius: 20px; width: 100%; max-width: 780px; position: relative;
+  transform: translateY(24px); flex-shrink: 0;
   transition: transform 0.35s cubic-bezier(0.16,1,0.3,1) !important;
-  flex-shrink: 0;
 }
-.proposal-overlay.open .proposal-modal {
-  transform: translateY(0);
-}
-
-/* Drag handle — hidden on desktop */
-.prop-drag-handle { display: none; }
-
-/* ════════════════════════════════════════════════
-   PROPOSAL MODAL — MOBILE (bottom sheet)
-════════════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .proposal-overlay {
-    padding: 0;
-    align-items: flex-end;
-    overflow: hidden; /* sheet handles its own scroll */
-  }
-  .proposal-modal {
-    width: 100%;
-    max-width: 100%;
-    max-height: 93svh;
-    border-radius: 20px 20px 0 0;
-    border-left: none; border-right: none; border-bottom: none;
-    transform: translateY(100%);
-    display: flex; flex-direction: column;
-    overflow: hidden; /* children handle overflow */
-  }
-  .proposal-overlay.open .proposal-modal {
-    transform: translateY(0);
-  }
-
-  /* Drag handle pill */
-  .prop-drag-handle {
-    display: flex; justify-content: center; align-items: center;
-    padding: 0.75rem 0 0.25rem; flex-shrink: 0;
-    background: var(--modal-bg);
-    border-radius: 20px 20px 0 0;
-    cursor: grab;
-  }
-  .prop-drag-handle::before {
-    content: ''; display: block;
-    width: 36px; height: 4px; border-radius: 2px;
-    background: var(--prop-rule);
-  }
-
-  /* Sticky top bar */
-  .prop-topbar {
-    padding: 0.75rem 1rem;
-    border-radius: 0;
-    flex-shrink: 0;
-  }
-  .prop-doc-name { display: none; } /* too cramped, badge alone is enough */
-  .prop-close {
-    width: 36px; height: 36px; /* larger tap target */
-  }
-
-  /* Scrollable content area */
-  .prop-body {
-    padding: 1.5rem 1.125rem 3rem;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    flex: 1;
-    overscroll-behavior: contain;
-  }
-
-  /* Cover */
-  .prop-cover { margin-bottom: 2rem; padding-bottom: 1.75rem; }
-  .prop-title { font-size: clamp(1.5rem, 7vw, 2rem); }
-  .prop-subtitle { font-size: 0.9rem; margin-bottom: 1.5rem; }
-  .prop-meta-row {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1rem 1.25rem;
-  }
-  .prop-meta:last-child { grid-column: 1 / -1; } /* email spans full width */
-
-  /* TOC */
-  .prop-toc { padding: 1.125rem 1.125rem; margin-bottom: 2rem; }
-  .prop-toc-list { gap: 0.625rem; }
-  .prop-toc-link { font-size: 0.9375rem; padding: 0.25rem 0; display: block; } /* bigger tap area */
-
-  /* Section headings */
-  .prop-h2 { font-size: 1.125rem; flex-wrap: wrap; gap: 0.5rem; }
-  .prop-section { margin-bottom: 2.25rem; }
-  .prop-p { font-size: 0.9rem; }
-  .prop-rule { margin: 2rem 0; }
-
-  /* Pull quote */
-  .prop-pullq { padding: 1rem 1.125rem; }
-  .prop-pullq p { font-size: 0.9rem; }
-
-  /* Stat cards — forced single column, stacked */
-  .prop-cards {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.75rem;
-  }
-  .prop-card {
-    display: block !important;
-    width: 100% !important;
-    padding: 1rem 1.125rem;
-    box-sizing: border-box;
-  }
-  .prop-card-label { font-size: 0.6rem; margin-bottom: 0.3rem; }
-  .prop-card-num   { font-size: 1.75rem; margin-bottom: 0.3rem; }
-  .prop-card-desc  { font-size: 0.8125rem; }
-
-  /* Platform items */
-  .prop-platforms { gap: 0.75rem; }
-  .prop-plat { padding: 1rem 1.125rem; gap: 0 0.75rem; }
-  .prop-plat-name { font-size: 0.875rem; }
-  .prop-plat-desc { font-size: 0.8125rem; }
-
-  /* Table — stacked card layout, no horizontal scroll */
-  .prop-table-wrap { margin: 1.25rem 0; }
-  .prop-table { font-size: 0.875rem; min-width: unset; }
-  .prop-table thead { display: none; } /* hide column headers */
-  .prop-table tbody { display: flex; flex-direction: column; gap: 0.75rem; }
-  .prop-table tr {
-    display: flex; flex-direction: column;
-    background: var(--prop-card); border: 1px solid var(--prop-card-b);
-    border-radius: 12px; padding: 1rem 1.125rem; gap: 0.35rem;
-    border-bottom: 1px solid var(--prop-card-b) !important;
-  }
-  .prop-table tr.total {
-    background: var(--prop-toc-bg);
-    border-color: var(--prop-toc-b) !important;
-    border-top: none !important;
-  }
-  .prop-table td {
-    display: block; padding: 0; border-bottom: none !important;
-    color: var(--prop-body); text-align: left !important;
-    white-space: normal;
-  }
-  .prop-table td:first-child {
-    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--prop-h3);
-  }
-  .prop-table td:nth-child(2) {
-    font-size: 0.875rem; line-height: 1.55;
-    color: var(--prop-body);
-  }
-  .prop-table td:last-child {
-    font-size: 1rem; font-weight: 800; color: var(--prop-h2);
-    text-align: left !important; margin-top: 0.35rem;
-  }
-  .prop-table tr.total td:first-child { color: var(--prop-h3); }
-  .prop-table tr.total td:last-child  { color: var(--prop-h3); font-size: 1.125rem; }
-
-  /* Timeline */
-  .prop-timeline::before { left: 16px; }
-  .prop-tl-dot { width: 34px; height: 34px; font-size: 0.6rem; }
-  .prop-tl-label { font-size: 0.65rem; }
-  .prop-tl-text { font-size: 0.8125rem; }
-
-  /* Modal CTA */
-  .prop-cta { margin-top: 2rem; padding-top: 2rem; }
-  .prop-cta-title { font-size: 1.075rem; }
-  .prop-cta-sub { font-size: 0.875rem; }
-  .prop-cta-btns { flex-direction: column; }
-  .prop-cta-btns .btn-primary,
-  .prop-cta-btns .btn-ghost { width: 100%; text-align: center; }
-}
-
-/* Modal header bar */
+.proposal-overlay.open .proposal-modal { transform: translateY(0); }
+.prop-drag { display: none; }
 .prop-topbar {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.25rem 2rem;
-  border-bottom: 1px solid var(--prop-rule);
-  position: sticky; top: 0; z-index: 10;
-  background: var(--modal-bg);
+  padding: 1.25rem 2rem; border-bottom: 1px solid var(--prop-rule);
+  position: sticky; top: 0; z-index: 10; background: var(--modal-bg);
   border-radius: 20px 20px 0 0;
 }
 .prop-topbar-left { display: flex; align-items: center; gap: 0.75rem; }
-.prop-doc-badge {
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 4px 10px; border-radius: 50px;
-  background: var(--tag-bg); border: 1px solid var(--tag-border); color: var(--tag-color);
-}
+.prop-badge { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border-radius: 50px; background: var(--tag-bg); border: 1px solid var(--tag-border); color: var(--tag-color); }
 .prop-doc-name { font-size: 0.8125rem; font-weight: 600; color: var(--prop-muted); }
-.prop-close {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: none; border: 1px solid var(--prop-rule);
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  color: var(--prop-muted); flex-shrink: 0;
-}
-.prop-close:hover { background: var(--prop-card); color: var(--prop-h2); border-color: var(--prop-card-b); }
+.prop-close { width: 32px; height: 32px; border-radius: 50%; background: none; border: 1px solid var(--prop-rule); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--prop-muted); flex-shrink: 0; }
+.prop-close:hover { background: var(--prop-card); color: var(--prop-h2); }
 .prop-close svg { width: 14px; height: 14px; }
-
-/* Modal body */
-.prop-body {
-  padding: 3rem 3rem 4rem;
-  font-family: var(--font);
-}
-
-/* Cover */
+.prop-body { padding: 3rem 3rem 4rem; }
 .prop-cover { margin-bottom: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--prop-rule); }
-.prop-cover-tag {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--tag-color); margin-bottom: 1.25rem;
-}
+.prop-cover-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tag-color); margin-bottom: 1.25rem; }
 .prop-cover-tag::before { content: ''; display: block; width: 20px; height: 2px; background: var(--green); border-radius: 2px; }
-.prop-title {
-  font-size: clamp(1.875rem, 4vw, 2.5rem); font-weight: 800;
-  color: var(--prop-h2); line-height: 1.1; letter-spacing: -0.025em;
-  margin-bottom: 0.75rem;
-}
+.prop-title { font-size: clamp(1.875rem,4vw,2.5rem); font-weight: 800; color: var(--prop-h2); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.75rem; }
 .prop-title span { color: var(--gold); }
-.prop-subtitle { font-size: 1rem; color: var(--prop-body); font-weight: 400; line-height: 1.65; max-width: 54ch; margin-bottom: 2rem; }
+.prop-subtitle { font-size: 1rem; color: var(--prop-body); line-height: 1.65; max-width: 54ch; margin-bottom: 2rem; }
 .prop-meta-row { display: flex; gap: 2rem; flex-wrap: wrap; }
 .prop-meta { display: flex; flex-direction: column; gap: 0.2rem; }
 .prop-meta-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--prop-muted); }
 .prop-meta-value { font-size: 0.875rem; font-weight: 600; color: var(--prop-h2); }
-
-/* TOC */
-.prop-toc {
-  background: var(--prop-toc-bg); border: 1px solid var(--prop-toc-b);
-  border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 3rem;
-}
+.prop-toc { background: var(--prop-toc-bg); border: 1px solid var(--prop-toc-b); border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 3rem; }
 .prop-toc-title { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--prop-muted); margin-bottom: 1rem; }
 .prop-toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 .prop-toc-list li { display: flex; align-items: baseline; gap: 0.75rem; }
 .prop-toc-num { font-size: 0.7rem; font-weight: 700; color: var(--prop-h3); min-width: 1.25rem; }
-.prop-toc-link { font-size: 0.875rem; font-weight: 500; color: var(--prop-body); text-decoration: none; }
+.prop-toc-link { font-size: 0.875rem; font-weight: 500; color: var(--prop-body); text-decoration: none; cursor: pointer; }
 .prop-toc-link:hover { color: var(--prop-h3); }
-
-/* Sections */
 .prop-section { margin-bottom: 3rem; }
-.prop-h2 {
-  font-size: 1.375rem; font-weight: 800; color: var(--prop-h2);
-  letter-spacing: -0.02em; line-height: 1.15;
-  margin-bottom: 1.25rem;
-  display: flex; align-items: center; gap: 0.75rem;
-}
-.prop-h2-num {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
-  color: var(--tag-color); background: var(--tag-bg);
-  border: 1px solid var(--tag-border);
-  padding: 3px 9px; border-radius: 50px; flex-shrink: 0;
-}
-.prop-h3 {
-  font-size: 0.875rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--prop-h3); margin: 1.75rem 0 0.75rem;
-}
-.prop-p {
-  font-size: 0.9375rem; color: var(--prop-body); line-height: 1.80;
-  margin-bottom: 1rem;
-}
-.prop-p:last-child { margin-bottom: 0; }
+.prop-h2 { font-size: 1.375rem; font-weight: 800; color: var(--prop-h2); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+.prop-h2-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; color: var(--tag-color); background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 3px 9px; border-radius: 50px; flex-shrink: 0; }
+.prop-h3 { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--prop-h3); margin: 1.75rem 0 0.75rem; }
+.prop-p { font-size: 0.9375rem; color: var(--prop-body); line-height: 1.80; margin-bottom: 1rem; }
 .prop-rule { border: none; border-top: 1px solid var(--prop-rule); margin: 2.5rem 0; }
-
-/* Pull quote */
-.prop-pullq {
-  background: var(--prop-pullq); border-left: 3px solid var(--prop-pullq-b);
-  border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0;
-}
-.prop-pullq p {
-  font-size: 1rem; font-style: italic; color: var(--prop-body); line-height: 1.65;
-}
+.prop-pullq { background: var(--prop-pullq); border-left: 3px solid var(--prop-pullq-b); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+.prop-pullq p { font-size: 1rem; font-style: italic; color: var(--prop-body); line-height: 1.65; }
 .prop-pullq strong { color: var(--prop-h2); font-style: normal; }
-
-/* Stat cards */
-.prop-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
-.prop-card {
-  background: var(--prop-card); border: 1px solid var(--prop-card-b);
-  border-radius: 12px; padding: 1.25rem 1.25rem;
-}
+.prop-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin: 1.5rem 0; }
+.prop-card { background: var(--prop-card); border: 1px solid var(--prop-card-b); border-radius: 12px; padding: 1.25rem; }
 .prop-card-num { font-size: 1.75rem; font-weight: 800; color: var(--prop-h2); letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.3rem; }
 .prop-card-num span { color: var(--green-bright); }
 [data-theme="light"] .prop-card-num span { color: var(--green); }
 .prop-card-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--prop-muted); margin-bottom: 0.4rem; }
-.prop-card-desc  { font-size: 0.8rem; color: var(--prop-body); line-height: 1.5; }
-
-/* Platform cards */
+.prop-card-desc { font-size: 0.8rem; color: var(--prop-body); line-height: 1.5; }
 .prop-platforms { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
-.prop-plat {
-  background: var(--prop-card); border: 1px solid var(--prop-card-b);
-  border-radius: 12px; padding: 1.25rem 1.5rem;
-  display: grid; grid-template-columns: auto 1fr; gap: 0 1rem; align-items: start;
-}
-.prop-plat-dot {
-  width: 8px; height: 8px; border-radius: 50%; background: var(--green-bright);
-  margin-top: 6px; flex-shrink: 0;
-}
+.prop-plat { background: var(--prop-card); border: 1px solid var(--prop-card-b); border-radius: 12px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: auto 1fr; gap: 0 1rem; align-items: start; }
+.prop-plat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-bright); margin-top: 6px; flex-shrink: 0; }
 [data-theme="light"] .prop-plat-dot { background: var(--green); }
 .prop-plat-name { font-size: 0.9375rem; font-weight: 700; color: var(--prop-h2); margin-bottom: 0.35rem; }
 .prop-plat-desc { font-size: 0.8375rem; color: var(--prop-body); line-height: 1.6; }
-
-/* Fund table */
-.prop-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+.prop-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+.prop-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; min-width: 500px; }
 .prop-table th { text-align: left; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--prop-muted); padding: 0.5rem 1rem; border-bottom: 1px solid var(--prop-rule); }
 .prop-table td { padding: 0.875rem 1rem; border-bottom: 1px solid var(--prop-rule); color: var(--prop-body); vertical-align: top; }
 .prop-table tr:last-child td { border-bottom: none; }
 .prop-table td:first-child { font-weight: 600; color: var(--prop-h2); white-space: nowrap; }
 .prop-table td:last-child { font-weight: 700; color: var(--prop-h2); text-align: right; }
 .prop-table tr.total td { border-top: 2px solid var(--prop-card-b); font-weight: 800; color: var(--prop-h3); }
-
-/* Timeline */
-.prop-timeline { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; position: relative; }
+.prop-timeline { display: flex; flex-direction: column; margin: 1.5rem 0; position: relative; }
 .prop-timeline::before { content: ''; position: absolute; left: 18px; top: 24px; bottom: 24px; width: 2px; background: var(--prop-rule); }
 .prop-tl-item { display: grid; grid-template-columns: 38px 1fr; gap: 0.875rem; align-items: start; padding: 0 0 1.5rem; }
-.prop-tl-dot {
-  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
-  background: var(--prop-card); border: 2px solid var(--prop-card-b);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.65rem; font-weight: 800; color: var(--prop-h3);
-  position: relative; z-index: 1;
-}
+.prop-tl-dot { width: 38px; height: 38px; border-radius: 50%; background: var(--prop-card); border: 2px solid var(--prop-card-b); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; color: var(--prop-h3); position: relative; z-index: 1; }
 .prop-tl-content { padding-top: 0.55rem; }
 .prop-tl-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--prop-muted); margin-bottom: 0.3rem; }
 .prop-tl-text { font-size: 0.875rem; color: var(--prop-body); line-height: 1.6; }
-
-/* CTA footer inside modal */
-.prop-cta {
-  margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--prop-rule);
-  text-align: center;
-}
+.prop-cta { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--prop-rule); text-align: center; }
 .prop-cta-title { font-size: 1.25rem; font-weight: 800; color: var(--prop-h2); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
 .prop-cta-sub { font-size: 0.875rem; color: var(--prop-body); line-height: 1.65; margin-bottom: 1.75rem; max-width: 44ch; margin-left: auto; margin-right: auto; }
 .prop-cta-btns { display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; }
 
-
-
-/* ═══ RESPONSIVE (existing) ═══ */
-@media (max-width:1024px) {
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
   section { padding: 5rem 2.5rem; }
   .nav-inner { padding: 0 2.5rem; }
   .video-header { padding: 4rem 2.5rem 3rem; }
@@ -700,8 +387,9 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 3rem 2.5rem 2.5rem; }
   .footer-bottom { padding: 1.25rem 2.5rem; }
   .cta { padding: 5rem 2.5rem; }
+  .cred-strip { padding: 2rem 2.5rem; }
 }
-@media (max-width:768px) {
+@media (max-width: 768px) {
   :root { --nav-h: 60px; }
   .nav-inner { padding: 0 1.25rem; }
   .nav-links { display: none; }
@@ -710,22 +398,21 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   .nav-mobile { display: flex; }
   section { padding: 4rem 1.25rem; }
   .hero { min-height: 100svh; }
-  .hero-content { padding: 1.5rem 1rem; }
   .hero-glass { padding: 2rem 1.5rem; border-radius: 18px; }
-  .hero-headline { font-size: clamp(1.75rem,7vw,2.5rem); }
   .hero-btns { flex-direction: column; width: 100%; gap: 0.75rem; }
   .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 0.875rem 1.5rem; }
   .hero-stats { display: grid; grid-template-columns: 1fr 1fr; border-radius: 14px; }
   .hero-stat { padding: 1rem 0.75rem; border-bottom: 1px solid var(--stat-bdr); }
   .hero-stat:nth-child(2n) { border-right: none; }
-  .hero-stat:nth-child(3), .hero-stat:nth-child(4) { border-bottom: none; }
+  .hero-stat:nth-child(3) { border-bottom: none; }
+  .buyer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .buyer-btns { flex-direction: column; }
+  .buyer-btns .btn-primary, .buyer-btns .btn-ghost-alt { width: 100%; text-align: center; }
   .video-header { padding: 3rem 1.25rem 2rem; }
   .video-footer  { padding: 2.5rem 1.25rem 3.5rem; }
   .video-cinema { padding: 0; }
   .video-ratio { border-radius: 0; box-shadow: none; }
-  .video-play-btn { width: 64px; height: 64px; }
-  .video-play-btn svg { width: 22px; height: 22px; }
-  .video-footer .btn-primary, .video-footer .btn-ghost { width: 100%; text-align: center; }
+  .video-footer .btn-primary { width: 100%; text-align: center; }
   .impact { padding: 4rem 1.25rem; }
   .impact-top { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem; }
   .impact-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -734,29 +421,41 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   .cta-btns { flex-direction: column; gap: 0.75rem; }
   .cta-btns .btn-primary, .cta-btns .btn-ghost { width: 100%; text-align: center; }
   .cta-ask { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .cred-strip { padding: 1.5rem 1.25rem; gap: 0.75rem 1.5rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem 2rem; }
-  .footer-desc { max-width: 100%; }
   .footer-bottom { flex-direction: column; align-items: flex-start; padding: 1.25rem; gap: 0.75rem; }
+  /* Modal mobile */
+  .proposal-overlay { padding: 0; align-items: flex-end; overflow: hidden; }
+  .proposal-modal { width: 100%; max-width: 100%; max-height: 93svh; border-radius: 20px 20px 0 0; border-left: none; border-right: none; border-bottom: none; transform: translateY(100%); display: flex; flex-direction: column; overflow: hidden; }
+  .proposal-overlay.open .proposal-modal { transform: translateY(0); }
+  .prop-drag { display: flex; justify-content: center; align-items: center; padding: 0.75rem 0 0.25rem; flex-shrink: 0; background: var(--modal-bg); border-radius: 20px 20px 0 0; cursor: grab; }
+  .prop-drag::before { content: ''; display: block; width: 36px; height: 4px; border-radius: 2px; background: var(--prop-rule); }
+  .prop-topbar { padding: 0.75rem 1rem; border-radius: 0; flex-shrink: 0; }
+  .prop-doc-name { display: none; }
+  .prop-body { padding: 1.5rem 1.125rem 3rem; overflow-y: auto; -webkit-overflow-scrolling: touch; flex: 1; overscroll-behavior: contain; }
+  .prop-cards { grid-template-columns: 1fr 1fr; }
+  .prop-h2 { font-size: 1.125rem; }
+  .prop-p { font-size: 0.9rem; }
+  .prop-meta-row { gap: 1.25rem 1.5rem; }
 }
-@media (max-width:400px) {
+@media (max-width: 400px) {
   .hero-glass { padding: 1.75rem 1.125rem; border-radius: 14px; }
-  .hero-headline { font-size: clamp(1.5rem,8vw,2rem); }
-  .stat-num { font-size: 1.125rem; }
-  .stat-label { font-size: 0.58rem; }
   .impact-grid { grid-template-columns: 1fr; }
+  .prop-cards { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ══ NAV ══ -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">AERI<span>S AGRO</span></a>
+    <a href="#hero" class="nav-logo">AERI<span>S AGRO</span></a>
     <ul class="nav-links">
-      <li><a href="#platforms">Watch</a></li>
-      <li><a href="#impact">Impact</a></li>
-      <li><a href="#cta" class="nav-btn">Partner with us</a></li>
+      <li><a href="#aer-ussd">For farmers</a></li>
+      <li><a href="#aer-buyers">For buyers</a></li>
+      <li><a href="#aer-platforms">Watch</a></li>
+      <li><a href="#aer-ussd" class="nav-btn">Get started free</a></li>
     </ul>
     <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode">
       <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -767,55 +466,139 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
     </button>
   </div>
   <div class="nav-mobile" id="mobileMenu" aria-hidden="true">
-    <a href="#platforms" class="mob-link">Watch</a>
-    <a href="#impact" class="mob-link">Impact</a>
+    <a href="#aer-ussd" class="mob-link">For farmers</a>
+    <a href="#aer-buyers" class="mob-link">For buyers</a>
+    <a href="#aer-platforms" class="mob-link">Watch the video</a>
+    <a href="#aer-impact" class="mob-link">Impact</a>
     <div class="mob-theme-row">
       <span class="mob-theme-label">Appearance</span>
-      <button class="mob-theme-pill" id="mobThemeToggle" aria-label="Toggle theme">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="#1a4a28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <button class="mob-theme-pill" id="mobThemeToggle">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:static;width:14px;height:14px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="#1a4a28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:static;width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <span id="mobThemeLabel">Light mode</span>
       </button>
     </div>
-    <a href="#cta" class="mob-btn">Partner with us</a>
+    <button class="mob-btn" id="mobGetStarted">Get started free</button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<!-- ══ HERO ══ -->
+<section class="hero" id="hero">
   <div class="hero-img"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-glass">
-      <div class="hero-icon">
+      <div class="hero-icon anim-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 8C8 10 5.9 16.17 3.82 22H5.71C6.66 19.55 7.75 17.25 9 15.17C11.07 15.85 13.4 16 16 16L21 10C18.89 9.23 17 8 17 8ZM9 13.06C9.67 11.7 10.64 10.46 12 9.3C14.09 7.58 16.5 6.5 17 6.5C17 6.5 14.24 7.19 12.5 9C11.4 10.13 10.59 11.5 9.94 13H9V13.06ZM7.5 3.5C7.5 3.5 4.5 6 4.5 10C4.5 12 5.5 13.5 5.5 13.5C5.5 13.5 5.5 11.5 6.5 10C7.17 8.94 8.5 8 8.5 8C8.5 8 7.5 6.5 7.5 3.5Z"/></svg>
       </div>
-      <h1 class="hero-headline">Smart Agriculture with<br><span>Reliable Intelligence</span></h1>
-      <p class="hero-sub">Revolutionize agricultural systems with precise intelligence designed for the next generation of farming. Measured by the acre, optimized by the atom.</p>
-      <div class="hero-btns">
-        <a href="#platforms" class="btn-primary">Explore Platforms</a>
-        <a href="#cta" class="btn-ghost">Partner with Us</a>
+      <h1 class="hero-headline anim-headline">Know your field.<br><span>Sell at a fair price.</span></h1>
+      <p class="hero-sub anim-sub">
+        Weather alerts, crop advice, and safe market access — on any phone, in your language.
+        <em>Coltiva itye kwede — Coltiva is with you.</em>
+      </p>
+      <div class="hero-btns anim-btns">
+        <a href="#aer-ussd" class="btn-primary">Get started free</a>
+        <a href="#aer-buyers" class="btn-ghost">I'm a buyer</a>
       </div>
     </div>
-    <div class="hero-stats">
+    <div class="hero-stats anim-stats">
       <div class="hero-stat">
-        <div class="stat-num">120<span>K</span></div>
-        <div class="stat-label">Lango farmers</div>
+        <div class="stat-num"><span>Free</span></div>
+        <div class="stat-label">Basic alerts, no cost</div>
       </div>
       <div class="hero-stat">
-        <div class="stat-num"><span>$</span>445M</div>
-        <div class="stat-label">Losses to prevent</div>
+        <div class="stat-num"><span>UGX 5K</span></div>
+        <div class="stat-label">Premium / month</div>
       </div>
       <div class="hero-stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Platforms</div>
+        <div class="stat-num"><span>Any phone</span></div>
+        <div class="stat-label">No internet needed</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VIDEO -->
-<section class="video-section" id="platforms">
+<!-- ══ FOR FARMERS ══ -->
+<section class="farmer-section" id="aer-ussd">
+  <div class="farmer-inner">
+    <div class="section-tag">For farmers</div>
+    <h2 class="section-headline" style="margin-bottom:0.5rem">Start in 3 steps.<br><span>On any phone.</span></h2>
+    <p class="section-body" style="margin-bottom:3.5rem">Coltiva works on every mobile phone — no internet, no smartphone, no data bundle needed. Just dial and go.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Dial *123# on any phone</div>
+        <div class="step-body">Register your name, crop, and district in under 2 minutes. Basic alerts are free — always.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Get advice for your exact land</div>
+        <div class="step-body">Weekly weather warnings, planting windows, pest alerts, and fertilizer advice — all tailored to your specific field and soil type.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Sell safely through LinkTrade</div>
+        <div class="step-body">List your harvest. A verified buyer pays into escrow. You receive the full amount on delivery — guaranteed, with no broker taking your margin.</div>
+      </div>
+    </div>
+    <div class="dial-strip">
+      <div class="dial-pill">
+        <span class="dial-label">Dial now</span>
+        <span class="dial-num">*123#</span>
+      </div>
+      <p class="dial-note">Works on MTN and Airtel Uganda. Available in English and Luo. UGX 5,000/month for premium — less than a kilogram of maize.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR BUYERS ══ -->
+<section class="buyer-section" id="aer-buyers">
+  <div class="buyer-inner">
+    <div class="buyer-grid">
+      <div>
+        <div class="section-tag">For buyers &amp; offtakers</div>
+        <h2 class="section-headline">Reliable supply.<br><span>Zero payment risk.</span></h2>
+        <p class="section-body" style="margin-bottom:0">LinkTrade connects you directly to verified smallholder farmers across Lango — with quality-graded produce, escrow-secured payments, and harvest forecasts 6–8 weeks out so you can plan procurement in advance.</p>
+        <div class="buyer-btns">
+          <a href="mailto:aerisagro@gmail.com?subject=Buyer application — LinkTrade" class="btn-primary">Apply for buyer access</a>
+          <a href="#aer-platforms" class="btn-ghost-alt">See how it works</a>
+        </div>
+      </div>
+      <div class="buyer-cards">
+        <div class="buyer-card">
+          <div class="buyer-card-label">Quality-verified supply</div>
+          <div class="buyer-card-body">Every listing includes standardised grading. A third-party inspector option is available for trades over 5 MT.</div>
+        </div>
+        <div class="buyer-card">
+          <div class="buyer-card-label">Escrow-secured payments</div>
+          <div class="buyer-card-body">Your funds are held in MTN MoMo escrow and only released to the farmer on verified delivery. Zero payment dispute risk.</div>
+        </div>
+        <div class="buyer-card">
+          <div class="buyer-card-label">Harvest forecasts from Aeryion</div>
+          <div class="buyer-card-body">Coltiva farmer data feeds Aeryion production forecasts — giving you visibility on volume, timing, and crop quality 6–8 weeks before harvest.</div>
+        </div>
+        <div class="buyer-card">
+          <div class="buyer-card-label">Full transaction traceability</div>
+          <div class="buyer-card-body">Every trade is timestamped, geotagged, and recorded — making your supply chain audit-ready for export certification and ESG reporting.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CREDIBILITY STRIP ══ -->
+<div class="cred-strip">
+  <span class="cred-label">Building with</span>
+  <span class="cred-partner">MAAIF</span>
+  <span class="cred-partner">NEMA</span>
+  <span class="cred-partner">MTN MoMo</span>
+  <span class="cred-partner">Airtel Uganda</span>
+  <span class="cred-partner">Makerere CAES</span>
+  <span class="cred-partner">Africa's Talking</span>
+</div>
+
+<!-- ══ VIDEO ══ -->
+<section class="video-section" id="aer-platforms" style="padding:0">
   <div class="video-header">
     <div class="section-tag">Watch the video</div>
     <h2 class="section-headline">Three platforms.<br>One <span>closed-loop ecosystem.</span></h2>
@@ -823,27 +606,27 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   </div>
   <div class="video-cinema">
     <div class="video-ratio">
-      <iframe src="https://www.youtube.com/embed/Mv-tc3gxKlE?rel=0&modestbranding=1" title="AERIS Ecosystem Explainer" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block;"></iframe>
+      <iframe src="https://www.youtube.com/embed/Mv-tc3gxKlE?rel=0&modestbranding=1" title="AERIS Ecosystem Explainer" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </div>
   </div>
   <div class="video-footer">
-    <a href="#cta" class="btn-primary">Partner with us</a>
-    <p class="video-footer-note">Interested in a live demo of the Aeryion dashboard or Coltiva USSD flow? Get in touch and we'll set one up.</p>
+    <a href="#aer-ussd" class="btn-primary">Get started free</a>
+    <p class="video-footer-note">Want a live demo of the Aeryion dashboard or the Coltiva USSD flow? Reach out and we'll set one up.</p>
   </div>
 </section>
 
-<!-- IMPACT -->
-<section class="impact" id="impact">
+<!-- ══ IMPACT ══ -->
+<section class="impact" id="aer-impact">
   <div class="impact-inner">
     <div class="impact-top">
       <div>
-        <div class="section-tag">12-month pilot targets</div>
+        <div class="section-tag">What farmers gain</div>
         <h2 class="section-headline">12,000 farmers.<br>3 districts. 1 season.</h2>
         <p class="section-body">10% penetration of the Lango sub-region in Year 1 — with a 5-year national scale target of 800,000 farmers.</p>
       </div>
-      <div class="impact-quote">
+      <blockquote class="impact-quote">
         <strong>"The $445M in post-harvest losses is not a market failure.</strong> It is an intelligence failure. Farmers cannot make good decisions without good data. AERIS closes that gap."
-      </div>
+      </blockquote>
     </div>
     <div class="impact-grid">
       <div class="impact-card">
@@ -870,8 +653,8 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="cta">
+<!-- ══ CTA ══ -->
+<section class="cta" id="aer-cta">
   <div class="cta-inner">
     <div class="cta-ask">
       <div class="cta-ask-label">Seed Round</div>
@@ -886,35 +669,37 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-top">
     <div>
-      <a href="#" class="footer-logo">AERI<span>S AGRO</span></a>
+      <a href="#hero" class="footer-logo">AERI<span>S AGRO</span></a>
       <div class="footer-tagline">Intelligence. Connected.</div>
       <p class="footer-desc">AERIS Agro builds integrated agricultural intelligence infrastructure to transform how Africa produces, trades, and manages food systems. Starting with Northern Uganda's Lango sub-region.</p>
       <div class="footer-contact"><a href="mailto:aerisagro@gmail.com">aerisagro@gmail.com</a></div>
     </div>
     <div>
-      <div class="footer-col-title">Platforms</div>
+      <div class="footer-col-title">Farmers</div>
       <ul class="footer-links">
-        <li><a href="#platforms">Aeryion</a></li>
-        <li><a href="#platforms">Coltiva</a></li>
-        <li><a href="#platforms">LinkTrade</a></li>
+        <li><a href="#aer-ussd">Dial *123# to start</a></li>
+        <li><a href="#aer-ussd">How Coltiva works</a></li>
+        <li><a href="#aer-platforms">Watch the video</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Company</div>
+      <div class="footer-col-title">Buyers</div>
       <ul class="footer-links">
-        <li><a href="#">About AERIS</a></li>
-        <li><a href="#">Our mission</a></li>
-        <li><a href="#">Careers</a></li>
+        <li><a href="mailto:aerisagro@gmail.com?subject=Buyer application — LinkTrade">Apply for access</a></li>
+        <li><a href="#aer-buyers">How LinkTrade works</a></li>
+        <li><a href="mailto:aerisagro@gmail.com?subject=Government demo request">Request a demo</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Resources</div>
+      <div class="footer-col-title">Investors</div>
       <ul class="footer-links">
-        <li><button class="footer-links" id="openProposal2" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit;font-size:0.875rem;color:var(--text-foot);text-align:left;">Full proposal</button></li>
+        <li><button id="openProposal2">Read the proposal</button></li>
+        <li><a href="mailto:aerisagro@gmail.com?subject=Seed round enquiry">Get in touch</a></li>
+        <li><a href="#aer-impact">Impact targets</a></li>
       </ul>
     </div>
   </div>
@@ -923,338 +708,145 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   </div>
 </footer>
 
-<!-- ═══ PROPOSAL MODAL ═══ -->
+<!-- ══ PROPOSAL MODAL ══ -->
 <div class="proposal-overlay" id="proposalOverlay" role="dialog" aria-modal="true" aria-label="AERIS Agro Seed Round Proposal">
   <div class="proposal-modal" id="proposalModal">
-
-    <!-- Drag handle (mobile bottom-sheet) -->
-    <div class="prop-drag-handle" aria-hidden="true"></div>
-
-    <!-- Top bar -->
+    <div class="prop-drag" aria-hidden="true"></div>
     <div class="prop-topbar">
       <div class="prop-topbar-left">
-        <span class="prop-doc-badge">Investment Proposal</span>
+        <span class="prop-badge">Investment Proposal</span>
         <span class="prop-doc-name">AERIS Agro · Seed Round 2026</span>
       </div>
       <button class="prop-close" id="closeProposal" aria-label="Close proposal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-
-    <div class="prop-body">
-
+    <div class="prop-body" id="propBody">
       <!-- Cover -->
       <div class="prop-cover">
         <div class="prop-cover-tag">Seed Round · $2.8M Ask</div>
         <h1 class="prop-title">AERIS Agro:<br>Closing the <span>Intelligence Gap</span><br>in African Agriculture</h1>
         <p class="prop-subtitle">A seed-stage investment proposal to pilot an integrated agricultural intelligence ecosystem across Uganda's Lango sub-region — starting with 12,000 farmers in three districts over twelve months.</p>
         <div class="prop-meta-row">
-          <div class="prop-meta">
-            <span class="prop-meta-label">Company</span>
-            <span class="prop-meta-value">AERIS Agro Limited</span>
-          </div>
-          <div class="prop-meta">
-            <span class="prop-meta-label">Headquarters</span>
-            <span class="prop-meta-value">Kampala, Uganda</span>
-          </div>
-          <div class="prop-meta">
-            <span class="prop-meta-label">Stage</span>
-            <span class="prop-meta-value">Pre-Seed / Seed</span>
-          </div>
-          <div class="prop-meta">
-            <span class="prop-meta-label">Ask</span>
-            <span class="prop-meta-value">USD $2,800,000</span>
-          </div>
-          <div class="prop-meta">
-            <span class="prop-meta-label">Contact</span>
-            <span class="prop-meta-value">aerisagro@gmail.com</span>
-          </div>
+          <div class="prop-meta"><span class="prop-meta-label">Company</span><span class="prop-meta-value">AERIS Agro Limited</span></div>
+          <div class="prop-meta"><span class="prop-meta-label">Headquarters</span><span class="prop-meta-value">Kampala, Uganda</span></div>
+          <div class="prop-meta"><span class="prop-meta-label">Stage</span><span class="prop-meta-value">Pre-Seed / Seed</span></div>
+          <div class="prop-meta"><span class="prop-meta-label">Ask</span><span class="prop-meta-value">USD $2,800,000</span></div>
+          <div class="prop-meta"><span class="prop-meta-label">Contact</span><span class="prop-meta-value">aerisagro@gmail.com</span></div>
         </div>
       </div>
-
       <!-- TOC -->
       <div class="prop-toc">
         <div class="prop-toc-title">Contents</div>
         <ol class="prop-toc-list">
-          <li><span class="prop-toc-num">01</span><a href="#prop-problem" class="prop-toc-link">The Problem</a></li>
-          <li><span class="prop-toc-num">02</span><a href="#prop-solution" class="prop-toc-link">Our Solution — The AERIS Ecosystem</a></li>
-          <li><span class="prop-toc-num">03</span><a href="#prop-market" class="prop-toc-link">Market Opportunity</a></li>
-          <li><span class="prop-toc-num">04</span><a href="#prop-pilot" class="prop-toc-link">12-Month Pilot Plan</a></li>
-          <li><span class="prop-toc-num">05</span><a href="#prop-impact" class="prop-toc-link">Impact Targets</a></li>
-          <li><span class="prop-toc-num">06</span><a href="#prop-funding" class="prop-toc-link">Use of Funds</a></li>
-          <li><span class="prop-toc-num">07</span><a href="#prop-roadmap" class="prop-toc-link">Roadmap to National Scale</a></li>
-          <li><span class="prop-toc-num">08</span><a href="#prop-ask" class="prop-toc-link">The Ask</a></li>
+          <li><span class="prop-toc-num">01</span><a class="prop-toc-link" data-target="pm-problem">The Problem</a></li>
+          <li><span class="prop-toc-num">02</span><a class="prop-toc-link" data-target="pm-solution">Our Solution — The AERIS Ecosystem</a></li>
+          <li><span class="prop-toc-num">03</span><a class="prop-toc-link" data-target="pm-market">Market Opportunity</a></li>
+          <li><span class="prop-toc-num">04</span><a class="prop-toc-link" data-target="pm-pilot">12-Month Pilot Plan</a></li>
+          <li><span class="prop-toc-num">05</span><a class="prop-toc-link" data-target="pm-impact">Impact Targets</a></li>
+          <li><span class="prop-toc-num">06</span><a class="prop-toc-link" data-target="pm-funding">Use of Funds</a></li>
+          <li><span class="prop-toc-num">07</span><a class="prop-toc-link" data-target="pm-roadmap">Roadmap to National Scale</a></li>
+          <li><span class="prop-toc-num">08</span><a class="prop-toc-link" data-target="pm-ask">The Ask</a></li>
         </ol>
       </div>
-
-      <!-- Section 1 -->
-      <div class="prop-section" id="prop-problem">
+      <!-- S1 -->
+      <div class="prop-section" id="pm-problem">
         <h2 class="prop-h2"><span class="prop-h2-num">01</span>The Problem</h2>
         <p class="prop-p">Uganda's agricultural sector employs over 70% of the population and contributes approximately 24% of GDP — yet it is systemically underperforming. Northern Uganda's Lango sub-region, home to roughly 120,000 smallholder farming households, loses an estimated <strong>$445 million</strong> in value annually to a convergence of preventable failures: post-harvest crop losses, price opacity, input misapplication, and the near-total absence of structured market access for small producers.</p>
-
-        <div class="prop-pullq">
-          <p><strong>"This is not a market failure. It is an intelligence failure.</strong> Farmers cannot make optimal decisions without timely, localized, trustworthy data. Without that data, every step of the agricultural cycle — from input procurement to post-harvest sale — is a guess."</p>
-        </div>
-
+        <div class="prop-pullq"><p><strong>"This is not a market failure. It is an intelligence failure.</strong> Farmers cannot make optimal decisions without timely, localized, trustworthy data. Without that data, every step of the agricultural cycle — from input procurement to post-harvest sale — is a guess."</p></div>
         <p class="prop-p">The root causes are structural and mutually reinforcing. Farmers lack access to agronomic advisory tailored to their specific fields. Buyers cannot verify crop quality or provenance. Middlemen extract disproportionate margin by exploiting information asymmetry. And government agencies lack granular, real-time data to deploy support interventions effectively.</p>
-
-        <p class="prop-p">Existing solutions address these challenges in isolation — an SMS advisory service here, a mobile money wallet there — but no platform has yet closed the loop from field intelligence to market transaction in a single integrated system.</p>
       </div>
-
       <hr class="prop-rule">
-
-      <!-- Section 2 -->
-      <div class="prop-section" id="prop-solution">
+      <!-- S2 -->
+      <div class="prop-section" id="pm-solution">
         <h2 class="prop-h2"><span class="prop-h2-num">02</span>Our Solution — The AERIS Ecosystem</h2>
         <p class="prop-p">AERIS Agro has designed a closed-loop agricultural intelligence platform built on three interconnected products. Together, they move data from the field to the market — and back — creating a feedback system that improves with every season.</p>
-
         <div class="prop-platforms">
-          <div class="prop-plat">
-            <div class="prop-plat-dot"></div>
-            <div>
-              <div class="prop-plat-name">Aeryion — Field Intelligence</div>
-              <div class="prop-plat-desc">A satellite and drone-assisted remote sensing platform that generates hyper-local vegetation indices, soil moisture estimates, and pest-risk alerts for individual farm plots. District agricultural officers and extension workers access a web dashboard; farmers receive push alerts via Coltiva. Powered by Google Earth Engine and a Supabase-backed geospatial data pipeline.</div>
-            </div>
-          </div>
-          <div class="prop-plat">
-            <div class="prop-plat-dot"></div>
-            <div>
-              <div class="prop-plat-name">Coltiva — Farmer Interface</div>
-              <div class="prop-plat-desc">A USSD and SMS advisory layer that requires no smartphone or data connection. Farmers query Coltiva for planting schedules, input recommendations, weather outlooks, and real-time market prices. A freemium model provides basic alerts at no cost; premium advisory — including weekly agronomist-reviewed farm reports — is available for UGX 5,000/month (approx. $1.30).</div>
-            </div>
-          </div>
-          <div class="prop-plat">
-            <div class="prop-plat-dot"></div>
-            <div>
-              <div class="prop-plat-name">LinkTrade — Market Access</div>
-              <div class="prop-plat-desc">A digital commodity marketplace connecting smallholder farmers directly to verified buyers — processors, exporters, NGOs, and institutional purchasers. Transactions are secured through mobile-money escrow, eliminating payment risk for both parties. Standardized grading protocols built into the platform ensure buyers get consistent quality and farmers get fair prices — with full transaction traceability.</div>
-            </div>
-          </div>
+          <div class="prop-plat"><div class="prop-plat-dot"></div><div><div class="prop-plat-name">Aeryion — Field Intelligence</div><div class="prop-plat-desc">A satellite and drone-assisted remote sensing platform that generates hyper-local vegetation indices, soil moisture estimates, and pest-risk alerts for individual farm plots. District agricultural officers and extension workers access a web dashboard; farmers receive push alerts via Coltiva. Powered by Google Earth Engine and a Supabase-backed geospatial data pipeline.</div></div></div>
+          <div class="prop-plat"><div class="prop-plat-dot"></div><div><div class="prop-plat-name">Coltiva — Farmer Interface</div><div class="prop-plat-desc">A USSD and SMS advisory layer that requires no smartphone or data connection. Farmers query Coltiva for planting schedules, input recommendations, weather outlooks, and real-time market prices. A freemium model provides basic alerts at no cost; premium advisory — including weekly agronomist-reviewed farm reports — is available for UGX 5,000/month (approx. $1.30).</div></div></div>
+          <div class="prop-plat"><div class="prop-plat-dot"></div><div><div class="prop-plat-name">LinkTrade — Market Access</div><div class="prop-plat-desc">A digital commodity marketplace connecting smallholder farmers directly to verified buyers — processors, exporters, NGOs, and institutional purchasers. Transactions are secured through mobile-money escrow, eliminating payment risk for both parties. Standardized grading protocols built into the platform ensure buyers get consistent quality and farmers get fair prices — with full transaction traceability.</div></div></div>
         </div>
-
-        <p class="prop-p">The three platforms are designed to be mutually reinforcing. Aeryion data improves the advisory quality of Coltiva. Coltiva engagement drives LinkTrade adoption by keeping farmers active on the platform through the growing season. LinkTrade transaction data feeds back into Aeryion's demand-side forecasting, creating a self-improving intelligence cycle.</p>
+        <p class="prop-p">The three platforms are designed to be mutually reinforcing. Aeryion data improves the advisory quality of Coltiva. Coltiva engagement drives LinkTrade adoption. LinkTrade transaction data feeds back into Aeryion's demand-side forecasting, creating a self-improving intelligence cycle.</p>
       </div>
-
       <hr class="prop-rule">
-
-      <!-- Section 3 -->
-      <div class="prop-section" id="prop-market">
+      <!-- S3 -->
+      <div class="prop-section" id="pm-market">
         <h2 class="prop-h2"><span class="prop-h2-num">03</span>Market Opportunity</h2>
-
         <h3 class="prop-h3">Immediate addressable market</h3>
         <p class="prop-p">The Lango sub-region — comprising Lira, Alebtong, Dokolo, and surrounding districts — represents our launch geography. With approximately 120,000 smallholder farming households and an average farm size of 2–5 acres, the region produces primarily maize, cassava, sunflower, and sorghum. The combined gross value of Lango's agricultural output is estimated at over $800 million annually, of which post-harvest losses consume more than half.</p>
-
         <div class="prop-cards">
-          <div class="prop-card">
-            <div class="prop-card-label">Uganda smallholders</div>
-            <div class="prop-card-num">4.<span>8M</span></div>
-            <div class="prop-card-desc">Total smallholder farming households nationwide — the long-run national platform opportunity</div>
-          </div>
-          <div class="prop-card">
-            <div class="prop-card-label">Lango sub-region</div>
-            <div class="prop-card-num">120<span>K</span></div>
-            <div class="prop-card-desc">Households in the pilot geography — our Year 1 total addressable market</div>
-          </div>
-          <div class="prop-card">
-            <div class="prop-card-label">Annual losses</div>
-            <div class="prop-card-num"><span>$</span>445M</div>
-            <div class="prop-card-desc">Preventable post-harvest and market losses in Lango annually — the value at stake</div>
-          </div>
-          <div class="prop-card">
-            <div class="prop-card-label">National 5-year TAM</div>
-            <div class="prop-card-num"><span>$</span>2.4B</div>
-            <div class="prop-card-desc">Estimated annual loss recovery value at full national scale across Uganda's agricultural sector</div>
-          </div>
+          <div class="prop-card"><div class="prop-card-label">Uganda smallholders</div><div class="prop-card-num">4.<span>8M</span></div><div class="prop-card-desc">Total smallholder farming households nationwide — the long-run national platform opportunity</div></div>
+          <div class="prop-card"><div class="prop-card-label">Lango sub-region</div><div class="prop-card-num">120<span>K</span></div><div class="prop-card-desc">Households in the pilot geography — our Year 1 total addressable market</div></div>
+          <div class="prop-card"><div class="prop-card-label">Annual losses</div><div class="prop-card-num"><span>$</span>445M</div><div class="prop-card-desc">Preventable post-harvest and market losses in Lango annually — the value at stake</div></div>
+          <div class="prop-card"><div class="prop-card-label">National 5-year TAM</div><div class="prop-card-num"><span>$</span>2.4B</div><div class="prop-card-desc">Estimated annual loss recovery value at full national scale across Uganda's agricultural sector</div></div>
         </div>
-
         <h3 class="prop-h3">Competitive landscape</h3>
-        <p class="prop-p">Existing players in Uganda's agritech space operate in narrow verticals: ENSIBUUKO focuses on SACCO digitisation; Kyagalanyi Coffee operates single-commodity supply chains; Apollo Agriculture (Kenya) provides input financing. No competitor offers the full intelligence-to-market loop that AERIS provides, nor do any operate a USSD-first interface paired with satellite field monitoring at the farm-plot level.</p>
-
-        <p class="prop-p">Our primary moat is data network effects: every additional farmer using Coltiva enriches the Aeryion model; every additional buyer on LinkTrade improves price discovery for all users. This flywheel deepens with scale.</p>
+        <p class="prop-p">No competitor offers the full intelligence-to-market loop that AERIS provides, nor do any operate a USSD-first interface paired with satellite field monitoring at the farm-plot level. Our primary moat is data network effects: every additional farmer using Coltiva enriches the Aeryion model; every additional buyer on LinkTrade improves price discovery for all users.</p>
       </div>
-
       <hr class="prop-rule">
-
-      <!-- Section 4 -->
-      <div class="prop-section" id="prop-pilot">
+      <!-- S4 -->
+      <div class="prop-section" id="pm-pilot">
         <h2 class="prop-h2"><span class="prop-h2-num">04</span>12-Month Pilot Plan</h2>
-        <p class="prop-p">The seed funding will finance a focused, measurable 12-month pilot across three Lango districts — Lira, Alebtong, and Dokolo — targeting 12,000 farming households (10% of the sub-region). The pilot will run through one complete maize growing season, with baseline and endline surveys to establish impact metrics for Series A fundraising.</p>
-
+        <p class="prop-p">The seed funding will finance a focused, measurable 12-month pilot across three Lango districts — Lira, Alebtong, and Dokolo — targeting 12,000 farming households (10% of the sub-region).</p>
         <div class="prop-timeline">
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Q1</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Months 1–3 · Infrastructure &amp; Onboarding</div>
-              <div class="prop-tl-text">Deploy Supabase geospatial data pipeline for all three districts. Finalise Aeryion satellite coverage via Google Earth Engine. Hire 18 district field agents. Begin Coltiva USSD onboarding with MTN and Airtel Uganda. Target: 3,000 active Coltiva users by end of Q1.</div>
-            </div>
-          </div>
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Q2</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Months 4–6 · Growing Season Launch</div>
-              <div class="prop-tl-text">Full Aeryion advisory activation aligned with maize planting season. Coltiva premium tier launch with weekly field reports. LinkTrade marketplace opens with 40 pre-verified buyers onboarded. Target: 8,000 active users, first 500 MT of forward contracts placed.</div>
-            </div>
-          </div>
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Q3</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Months 7–9 · Harvest &amp; Market</div>
-              <div class="prop-tl-text">Peak LinkTrade activity as harvest season begins. Real-time price feeds and logistics coordination live. Aeryion harvest-readiness alerts deployed. Target: 12,000 active users, $600,000 in escrow trade volume processed.</div>
-            </div>
-          </div>
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Q4</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Months 10–12 · Impact Assessment &amp; Series A</div>
-              <div class="prop-tl-text">Independent endline survey measuring yield, income, and market access outcomes against baseline. Publish impact report. Initiate Series A fundraising targeting $12M for national rollout. Target: $1.8M total LinkTrade volume for the year.</div>
-            </div>
-          </div>
+          <div class="prop-tl-item"><div class="prop-tl-dot">Q1</div><div class="prop-tl-content"><div class="prop-tl-label">Months 1–3 · Infrastructure &amp; Onboarding</div><div class="prop-tl-text">Deploy Supabase geospatial data pipeline for all three districts. Finalise Aeryion satellite coverage via Google Earth Engine. Hire 18 district field agents. Begin Coltiva USSD onboarding with MTN and Airtel Uganda. Target: 3,000 active Coltiva users by end of Q1.</div></div></div>
+          <div class="prop-tl-item"><div class="prop-tl-dot">Q2</div><div class="prop-tl-content"><div class="prop-tl-label">Months 4–6 · Growing Season Launch</div><div class="prop-tl-text">Full Aeryion advisory activation aligned with maize planting season. Coltiva premium tier launch with weekly field reports. LinkTrade marketplace opens with 40 pre-verified buyers onboarded. Target: 8,000 active users, first 500 MT of forward contracts placed.</div></div></div>
+          <div class="prop-tl-item"><div class="prop-tl-dot">Q3</div><div class="prop-tl-content"><div class="prop-tl-label">Months 7–9 · Harvest &amp; Market</div><div class="prop-tl-text">Peak LinkTrade activity as harvest season begins. Real-time price feeds and logistics coordination live. Aeryion harvest-readiness alerts deployed. Target: 12,000 active users, $600,000 in escrow trade volume processed.</div></div></div>
+          <div class="prop-tl-item"><div class="prop-tl-dot">Q4</div><div class="prop-tl-content"><div class="prop-tl-label">Months 10–12 · Impact Assessment &amp; Series A</div><div class="prop-tl-text">Independent endline survey measuring yield, income, and market access outcomes against baseline. Publish impact report. Initiate Series A fundraising targeting $12M for national rollout. Target: $1.8M total LinkTrade volume for the year.</div></div></div>
         </div>
       </div>
-
       <hr class="prop-rule">
-
-      <!-- Section 5 -->
-      <div class="prop-section" id="prop-impact">
+      <!-- S5 -->
+      <div class="prop-section" id="pm-impact">
         <h2 class="prop-h2"><span class="prop-h2-num">05</span>Impact Targets</h2>
-        <p class="prop-p">AERIS Agro is structured as a for-profit social enterprise. Our commercial model and our development mission are aligned: the deeper the farmer engagement, the stronger the revenue, and the larger the measured impact. The following targets are our Year 1 pilot commitments.</p>
-
+        <p class="prop-p">AERIS Agro is structured as a for-profit social enterprise. Our commercial model and our development mission are aligned: the deeper the farmer engagement, the stronger the revenue, and the larger the measured impact.</p>
         <div class="prop-cards">
-          <div class="prop-card">
-            <div class="prop-card-label">Yield increase (pilot users)</div>
-            <div class="prop-card-num"><span>+15</span>%</div>
-            <div class="prop-card-desc">Average maize yield improvement for Coltiva Premium users vs. control group, validated by endline survey</div>
-          </div>
-          <div class="prop-card">
-            <div class="prop-card-label">Income uplift per farmer</div>
-            <div class="prop-card-num"><span>+20</span>%</div>
-            <div class="prop-card-desc">Average income increase — approximately $30 additional income per active user per season</div>
-          </div>
-          <div class="prop-card">
-            <div class="prop-card-label">LinkTrade volume (Year 1)</div>
-            <div class="prop-card-num"><span>$1.8</span>M</div>
-            <div class="prop-card-desc">Total escrow trade value processed through the marketplace — 6,000 metric tonnes of crop</div>
-          </div>
-          <div class="prop-card">
-            <div class="prop-card-label">5-year national target</div>
-            <div class="prop-card-num">800<span>K</span></div>
-            <div class="prop-card-desc">Farming households on the integrated platform by Year 5 — $240M in cumulative incremental income</div>
-          </div>
+          <div class="prop-card"><div class="prop-card-label">Yield increase (pilot users)</div><div class="prop-card-num"><span>+15</span>%</div><div class="prop-card-desc">Average maize yield improvement for Coltiva Premium users vs. control group, validated by endline survey</div></div>
+          <div class="prop-card"><div class="prop-card-label">Income uplift per farmer</div><div class="prop-card-num"><span>+20</span>%</div><div class="prop-card-desc">Average income increase — approximately $30 additional income per active user per season</div></div>
+          <div class="prop-card"><div class="prop-card-label">LinkTrade volume (Year 1)</div><div class="prop-card-num"><span>$1.8</span>M</div><div class="prop-card-desc">Total escrow trade value processed through the marketplace — 6,000 metric tonnes of crop</div></div>
+          <div class="prop-card"><div class="prop-card-label">5-year national target</div><div class="prop-card-num">800<span>K</span></div><div class="prop-card-desc">Farming households on the integrated platform by Year 5 — $240M in cumulative incremental income</div></div>
         </div>
       </div>
-
       <hr class="prop-rule">
-
-      <!-- Section 6 -->
-      <div class="prop-section" id="prop-funding">
+      <!-- S6 -->
+      <div class="prop-section" id="pm-funding">
         <h2 class="prop-h2"><span class="prop-h2-num">06</span>Use of Funds</h2>
         <p class="prop-p">The $2.8M seed raise is structured to fully fund the 12-month Lango pilot and to produce the auditable impact data required to raise a $12M Series A for national rollout.</p>
-
         <div class="prop-table-wrap">
-        <table class="prop-table">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Technology &amp; Infrastructure</td>
-              <td>Supabase data infrastructure, Aeryion satellite pipeline, Coltiva USSD integration, LinkTrade marketplace build-out, security &amp; QA</td>
-              <td>$840,000</td>
-            </tr>
-            <tr>
-              <td>Field Operations</td>
-              <td>18 district field agents (12 months), agent training programme, field devices and connectivity, community mobilisation</td>
-              <td>$630,000</td>
-            </tr>
-            <tr>
-              <td>Market Development</td>
-              <td>Buyer onboarding and verification, LinkTrade escrow seed capital, logistics partnerships, commodity grading protocols</td>
-              <td>$490,000</td>
-            </tr>
-            <tr>
-              <td>Data &amp; Research</td>
-              <td>Baseline and endline surveys, independent impact validation, Aeryion model training data, geospatial dataset licensing</td>
-              <td>$280,000</td>
-            </tr>
-            <tr>
-              <td>Team &amp; Leadership</td>
-              <td>Core engineering, product, and operations team salaries for 12 months; strategic advisory fees</td>
-              <td>$420,000</td>
-            </tr>
-            <tr>
-              <td>Working Capital &amp; Contingency</td>
-              <td>Operating reserve, regulatory compliance, legal, audit, and 10% contingency buffer</td>
-              <td>$140,000</td>
-            </tr>
-            <tr class="total">
-              <td>Total Seed Ask</td>
-              <td>12-month Lango sub-region pilot</td>
-              <td>$2,800,000</td>
-            </tr>
-          </tbody>
-        </table>
-        </div><!-- /prop-table-wrap -->
-      </div>
-
-      <hr class="prop-rule">
-
-      <!-- Section 7 -->
-      <div class="prop-section" id="prop-roadmap">
-        <h2 class="prop-h2"><span class="prop-h2-num">07</span>Roadmap to National Scale</h2>
-        <p class="prop-p">The Lango pilot is the first phase of a five-year national expansion plan. Each stage is financed by the commercial revenue and impact evidence generated in the previous phase, reducing dependency on grant funding as the business matures.</p>
-
-        <div class="prop-timeline">
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Y1</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Year 1 — Lango Pilot</div>
-              <div class="prop-tl-text">12,000 farmers · 3 districts · $2.8M seed · Prove the model, generate evidence base</div>
-            </div>
-          </div>
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Y2</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Year 2 — Northern Uganda</div>
-              <div class="prop-tl-text">60,000 farmers · 8 districts · $12M Series A · Full Lango coverage plus Acholi sub-region entry</div>
-            </div>
-          </div>
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Y3</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Year 3 — Eastern Uganda</div>
-              <div class="prop-tl-text">200,000 farmers · National revenue breakeven · Series B capital for Eastern and Central region entry</div>
-            </div>
-          </div>
-          <div class="prop-tl-item">
-            <div class="prop-tl-dot">Y5</div>
-            <div class="prop-tl-content">
-              <div class="prop-tl-label">Year 5 — National &amp; Regional</div>
-              <div class="prop-tl-text">800,000 Ugandan farmers · Regional expansion to Tanzania and Rwanda · $240M cumulative incremental farmer income</div>
-            </div>
-          </div>
+          <table class="prop-table">
+            <thead><tr><th>Category</th><th>Description</th><th>Amount</th></tr></thead>
+            <tbody>
+              <tr><td>Technology &amp; Infrastructure</td><td>Supabase data infrastructure, Aeryion satellite pipeline, Coltiva USSD integration, LinkTrade marketplace build-out, security &amp; QA</td><td>$840,000</td></tr>
+              <tr><td>Field Operations</td><td>18 district field agents (12 months), agent training programme, field devices and connectivity, community mobilisation</td><td>$630,000</td></tr>
+              <tr><td>Market Development</td><td>Buyer onboarding and verification, LinkTrade escrow seed capital, logistics partnerships, commodity grading protocols</td><td>$490,000</td></tr>
+              <tr><td>Data &amp; Research</td><td>Baseline and endline surveys, independent impact validation, Aeryion model training data, geospatial dataset licensing</td><td>$280,000</td></tr>
+              <tr><td>Team &amp; Leadership</td><td>Core engineering, product, and operations team salaries for 12 months; strategic advisory fees</td><td>$420,000</td></tr>
+              <tr><td>Working Capital &amp; Contingency</td><td>Operating reserve, regulatory compliance, legal, audit, and 10% contingency buffer</td><td>$140,000</td></tr>
+              <tr class="total"><td>Total Seed Ask</td><td>12-month Lango sub-region pilot</td><td>$2,800,000</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
       <hr class="prop-rule">
-
-      <!-- Section 8 -->
-      <div class="prop-section" id="prop-ask">
+      <!-- S7 -->
+      <div class="prop-section" id="pm-roadmap">
+        <h2 class="prop-h2"><span class="prop-h2-num">07</span>Roadmap to National Scale</h2>
+        <p class="prop-p">The Lango pilot is the first phase of a five-year national expansion plan. Each stage is financed by the commercial revenue and impact evidence generated in the previous phase.</p>
+        <div class="prop-timeline">
+          <div class="prop-tl-item"><div class="prop-tl-dot">Y1</div><div class="prop-tl-content"><div class="prop-tl-label">Year 1 — Lango Pilot</div><div class="prop-tl-text">12,000 farmers · 3 districts · $2.8M seed · Prove the model, generate evidence base</div></div></div>
+          <div class="prop-tl-item"><div class="prop-tl-dot">Y2</div><div class="prop-tl-content"><div class="prop-tl-label">Year 2 — Northern Uganda</div><div class="prop-tl-text">60,000 farmers · 8 districts · $12M Series A · Full Lango coverage plus Acholi sub-region entry</div></div></div>
+          <div class="prop-tl-item"><div class="prop-tl-dot">Y3</div><div class="prop-tl-content"><div class="prop-tl-label">Year 3 — Eastern Uganda</div><div class="prop-tl-text">200,000 farmers · National revenue breakeven · Series B capital for Eastern and Central region entry</div></div></div>
+          <div class="prop-tl-item"><div class="prop-tl-dot">Y5</div><div class="prop-tl-content"><div class="prop-tl-label">Year 5 — National &amp; Regional</div><div class="prop-tl-text">800,000 Ugandan farmers · Regional expansion to Tanzania and Rwanda · $240M cumulative incremental farmer income</div></div></div>
+        </div>
+      </div>
+      <hr class="prop-rule">
+      <!-- S8 -->
+      <div class="prop-section" id="pm-ask">
         <h2 class="prop-h2"><span class="prop-h2-num">08</span>The Ask</h2>
         <p class="prop-p">AERIS Agro is seeking <strong>$2,800,000 in seed funding</strong> to execute the Lango sub-region pilot. We are open to a combination of equity investment, impact-linked debt, and grant co-financing from development finance institutions, impact funds, and government partners.</p>
-
-        <p class="prop-p">We are specifically looking for partners who can contribute beyond capital — including access to agricultural supply chains, government policy relationships, technical assistance in agronomy or logistics, and networks across East Africa's agritech ecosystem.</p>
-
-        <div class="prop-pullq">
-          <p>If you are an <strong>impact investor, development finance institution, agricultural value chain actor, or government agency</strong> interested in helping close the intelligence gap that is costing Uganda's farmers $445 million a year — we would like to talk.</p>
-        </div>
-
+        <div class="prop-pullq"><p>If you are an <strong>impact investor, development finance institution, agricultural value chain actor, or government agency</strong> interested in helping close the intelligence gap that is costing Uganda's farmers $445 million a year — we would like to talk.</p></div>
         <p class="prop-p">A full financial model, technical architecture documentation, and letters of intent from pilot district local governments are available on request.</p>
       </div>
-
       <!-- Modal CTA -->
       <div class="prop-cta">
         <div class="prop-cta-title">Ready to discuss partnership?</div>
@@ -1264,12 +856,10 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
           <button class="btn-ghost" id="closeProposalBottom">Close proposal</button>
         </div>
       </div>
-
     </div><!-- /prop-body -->
   </div><!-- /proposal-modal -->
 </div><!-- /proposal-overlay -->
 
-<!-- SCRIPTS -->
 <script>
 (function () {
   var html       = document.documentElement;
@@ -1278,125 +868,110 @@ footer { background: var(--foot-bg); border-top: 1px solid var(--foot-border); }
   var mobLabel   = document.getElementById('mobThemeLabel');
   var hamburger  = document.getElementById('hamburger');
   var mobileMenu = document.getElementById('mobileMenu');
-  var mobLinks   = mobileMenu.querySelectorAll('a');
+  var mobLinks   = mobileMenu.querySelectorAll('a.mob-link');
+  var mobGetStarted = document.getElementById('mobGetStarted');
 
-  /* Theme */
+  /* ── THEME ── */
   var saved = localStorage.getItem('aeris-theme') || 'dark';
   applyTheme(saved);
 
-  function applyTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('aeris-theme', theme);
-    var isDark = theme === 'dark';
-    toggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-    if (mobLabel) mobLabel.textContent = isDark ? 'Light mode' : 'Dark mode';
+  function applyTheme(t) {
+    html.setAttribute('data-theme', t);
+    localStorage.setItem('aeris-theme', t);
+    var d = t === 'dark';
+    toggleBtn.setAttribute('aria-label', d ? 'Switch to light mode' : 'Switch to dark mode');
+    if (mobLabel) mobLabel.textContent = d ? 'Light mode' : 'Dark mode';
   }
   function toggleTheme() { applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
   toggleBtn.addEventListener('click', toggleTheme);
   if (mobToggle) mobToggle.addEventListener('click', toggleTheme);
 
-  /* Hamburger */
+  /* ── HAMBURGER ── */
   function closeMenu() {
-    hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false'); mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
   }
-  function openCloseMenu() {
-    var isOpen = mobileMenu.classList.toggle('open');
-    hamburger.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-    mobileMenu.setAttribute('aria-hidden', String(!isOpen));
-  }
-  hamburger.addEventListener('click', function (e) { e.stopPropagation(); openCloseMenu(); });
+  hamburger.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+  });
   mobLinks.forEach(function (l) { l.addEventListener('click', closeMenu); });
+  if (mobGetStarted) mobGetStarted.addEventListener('click', function () { closeMenu(); document.getElementById('aer-ussd').scrollIntoView({ behavior: 'smooth' }); });
   document.addEventListener('click', function (e) { if (!mobileMenu.contains(e.target) && e.target !== hamburger) closeMenu(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   window.addEventListener('resize', function () { if (window.innerWidth > 768) closeMenu(); });
 
-  /* Proposal modal */
-  var overlay    = document.getElementById('proposalOverlay');
-  var modal      = document.getElementById('proposalModal');
-  var openBtns   = [document.getElementById('openProposal'), document.getElementById('openProposal2')];
-  var closeBtns  = [document.getElementById('closeProposal'), document.getElementById('closeProposalBottom')];
+  /* ── PROPOSAL MODAL ── */
+  var overlay   = document.getElementById('proposalOverlay');
+  var modal     = document.getElementById('proposalModal');
+  var propBody  = document.getElementById('propBody');
+  var openBtns  = [document.getElementById('openProposal'), document.getElementById('openProposal2')];
+  var closeBtns = [document.getElementById('closeProposal'), document.getElementById('closeProposalBottom')];
 
   function openProposal() {
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     overlay.scrollTop = 0;
-    // mobile: reset scroll inside body
-    var pb = modal.querySelector('.prop-body');
-    if (pb) pb.scrollTop = 0;
+    if (propBody) propBody.scrollTop = 0;
   }
   function closeProposal() {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
+  openBtns.forEach(function (b) { if (b) b.addEventListener('click', openProposal); });
+  closeBtns.forEach(function (b) { if (b) b.addEventListener('click', closeProposal); });
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeProposal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) closeProposal(); });
 
-  openBtns.forEach(function(btn) { if (btn) btn.addEventListener('click', openProposal); });
-  closeBtns.forEach(function(btn) { if (btn) btn.addEventListener('click', closeProposal); });
-
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeProposal();
+  /* ── TOC SCROLL inside modal ── */
+  overlay.querySelectorAll('.prop-toc-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var id = link.getAttribute('data-target');
+      var target = document.getElementById(id);
+      if (!target) return;
+      var topbarH = overlay.querySelector('.prop-topbar').offsetHeight;
+      if (window.innerWidth <= 768 && propBody) {
+        propBody.scrollTo({ top: target.offsetTop - topbarH - 24, behavior: 'smooth' });
+      } else {
+        var top = target.getBoundingClientRect().top - overlay.getBoundingClientRect().top + overlay.scrollTop - topbarH - 24;
+        overlay.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
   });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeProposal();
-  });
 
-  /* Swipe-to-dismiss on mobile */
-  var dragHandle = modal.querySelector('.prop-drag-handle');
+  /* ── SWIPE TO DISMISS (mobile) ── */
+  var drag = modal.querySelector('.prop-drag');
+  var topbar = modal.querySelector('.prop-topbar');
   var swipeStartY = 0, swipeCurrentY = 0, isSwiping = false;
-
   function onSwipeStart(e) {
     if (window.innerWidth > 768) return;
-    swipeStartY = e.touches ? e.touches[0].clientY : e.clientY;
-    isSwiping = true;
+    swipeStartY = e.touches[0].clientY; isSwiping = true;
     modal.style.transition = 'none';
   }
   function onSwipeMove(e) {
     if (!isSwiping || window.innerWidth > 768) return;
-    swipeCurrentY = (e.touches ? e.touches[0].clientY : e.clientY) - swipeStartY;
-    if (swipeCurrentY < 0) swipeCurrentY = 0;
+    swipeCurrentY = Math.max(0, e.touches[0].clientY - swipeStartY);
     modal.style.transform = 'translateY(' + swipeCurrentY + 'px)';
   }
   function onSwipeEnd() {
     if (!isSwiping || window.innerWidth > 768) return;
-    isSwiping = false;
-    modal.style.transition = '';
-    if (swipeCurrentY > 120) {
-      closeProposal();
-    } else {
-      modal.style.transform = '';
-    }
+    isSwiping = false; modal.style.transition = '';
+    if (swipeCurrentY > 120) { closeProposal(); } else { modal.style.transform = ''; }
     swipeCurrentY = 0;
   }
-
-  if (dragHandle) {
-    dragHandle.addEventListener('touchstart', onSwipeStart, { passive: true });
-    dragHandle.addEventListener('touchmove',  onSwipeMove,  { passive: true });
-    dragHandle.addEventListener('touchend',   onSwipeEnd);
-  }
-  // also allow swipe on topbar on mobile
-  var topbar = modal.querySelector('.prop-topbar');
-  if (topbar) {
-    topbar.addEventListener('touchstart', onSwipeStart, { passive: true });
-    topbar.addEventListener('touchmove',  onSwipeMove,  { passive: true });
-    topbar.addEventListener('touchend',   onSwipeEnd);
-  }
-
-  /* Smooth scroll for TOC links inside modal */
-  var tocLinks = overlay.querySelectorAll('.prop-toc-link');
-  tocLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var target = overlay.querySelector(link.getAttribute('href'));
-      if (target) {
-        var topbarH = overlay.querySelector('.prop-topbar').offsetHeight;
-        var targetTop = target.getBoundingClientRect().top - overlay.getBoundingClientRect().top + overlay.scrollTop - topbarH - 24;
-        overlay.scrollTo({ top: targetTop, behavior: 'smooth' });
-      }
-    });
+  [drag, topbar].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener('touchstart', onSwipeStart, { passive: true });
+    el.addEventListener('touchmove',  onSwipeMove,  { passive: true });
+    el.addEventListener('touchend',   onSwipeEnd);
   });
 })();
 </script>
-
 </body>
 </html>
